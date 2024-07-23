@@ -56,6 +56,7 @@ function Navbar() {
     setupRecaptcha();
     const appVerifier = window.recaptchaVerifier;
     const phone="+"+ph;
+    console.log(phone);
     signInWithPhoneNumber(auth,phone, appVerifier)
       .then((confirmationResult) => {
         // SMS sent. Prompt user to type the code from the message.
