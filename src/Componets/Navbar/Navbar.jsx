@@ -3,8 +3,14 @@ import logo from "../../Assets/logo.png";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import Sidebar from "./Sidebar";
-import { signInWithPhoneNumber, signInWithPopup, signOut, RecaptchaVerifier} from "firebase/auth";
-import { auth, provider} from "../../firebase/firebase";
+import OTPInput from "otp-input-react";
+import {
+  signInWithPhoneNumber,
+  signInWithPopup,
+  signOut,
+  RecaptchaVerifier,
+} from "firebase/auth";
+import { auth, provider } from "../../firebase/firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../Feature/Userslice";
 import { useNavigate } from "react-router-dom";
@@ -23,8 +29,8 @@ function Navbar() {
   const [isFrench, setisFrench] = useState(true);
   const [loading, setloading] = useState(false);
   const [ph, setPh] = useState("");
-  const [ShowOTP, setShowOTP] = useState(false);
-  const [verificationCode, setVerificationCode] = useState("");
+  const [ShowOTP, setShowOTP] = useState(true);
+  const [otp, setOtp] = useState("");
   const [confirmationResult, setConfirmationResult] = useState(null);
   const loginFunction = () => {
     signInWithPopup(auth, provider)
@@ -37,17 +43,21 @@ function Navbar() {
     setDivVisibleFrologin(false);
   };
   const setupRecaptcha = () => {
-    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-      'size': 'invisible',
-      'callback': (response) => {
-        // reCAPTCHA solved, allow signInWithPhoneNumber.
-        console.log("reCAPTCHA solved");
-      },
-      'expired-callback': () => {
-        // Response expired. Ask user to solve reCAPTCHA again.
-        console.log("reCAPTCHA expired");
+    window.recaptchaVerifier = new RecaptchaVerifier(
+      auth,
+      "recaptcha-container",
+      {
+        size: "invisible",
+        callback: (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          console.log("reCAPTCHA solved");
+        },
+        "expired-callback": () => {
+          // Response expired. Ask user to solve reCAPTCHA again.
+          console.log("reCAPTCHA expired");
+        },
       }
-    });
+    );
   };
 
   const onSignup = () => {
@@ -55,9 +65,9 @@ function Navbar() {
     setShowOTP(true);
     setupRecaptcha();
     const appVerifier = window.recaptchaVerifier;
-    const phone="+"+ph;
+    const phone = "+" + ph;
     console.log(phone);
-    signInWithPhoneNumber(auth,phone, appVerifier)
+    signInWithPhoneNumber(auth, phone, appVerifier)
       .then((confirmationResult) => {
         // SMS sent. Prompt user to type the code from the message.
         setConfirmationResult(confirmationResult);
@@ -71,7 +81,8 @@ function Navbar() {
   };
   const verifyCode = () => {
     if (confirmationResult) {
-      confirmationResult.confirm(verificationCode)
+      confirmationResult
+        .confirm(otp)
         .then((result) => {
           // User signed in successfully.
           const user = result.user;
@@ -129,7 +140,7 @@ function Navbar() {
 
   return (
     <div>
-          <div id="recaptcha-container"></div>
+      <div id="recaptcha-container"></div>
       <nav className="nav1">
         <ul>
           <div className="img">
@@ -282,10 +293,9 @@ function Navbar() {
 
             {isStudent ? (
               <>
-                <div className="flex bg-white  rounded-lg justify-center overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
+                <div className="flex-col bg-white  rounded-lg justify-center overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
                   {isFrench && (
                     <>
-                    
                       <div className="flex flex-col items-center w-full">
                         <label className="font-bold text-xl text-gray-800 text-center mb-4">
                           Verify your phone number
@@ -296,7 +306,7 @@ function Navbar() {
                           value={ph}
                           onChange={setPh}
                           containerStyle={{
-                            width: "50%",
+                            width: "65%",
                             marginLeft: "10%",
                             overflow: "hidden visible",
                           }}
@@ -307,14 +317,13 @@ function Navbar() {
                         />
                         <div>{}</div>
                         <div className="mt-8 w-50 flex justify-center">
-                          ,
+                          
                           <button
                             onClick={onSignup}
                             className="bg-blue-500 h-9 text-white font-bold py-2 px-4 w-50 rounded hover:bg-blue-600 flex justify-center items-center"
                           >
                             {loading && (
                               <>
-                               
                                 <CgSpinner
                                   size={20}
                                   className="mr-2 animate-spin"
@@ -325,6 +334,53 @@ function Navbar() {
                           </button>
                         </div>
                       </div>
+                    </>
+                  )}
+                  {ShowOTP && (
+                    <>
+                      <div className="flex flex-col items-center w-full my-5">
+                        <label
+                          htmlfor="otp"
+                          className="font-bold text-xl text-gray-800 text-center mb-4"
+                        >
+                          Verify your phone number
+                        </label>
+                        <OTPInput value={otp} 
+                        onChange={setOtp} 
+                        autoFocus 
+                        OTPLength={6} 
+                        otpType="number" 
+                        disabled={false} 
+                        inputStyles={{
+                          width: '3rem',
+                          height: '3rem',
+                          margin: '0 0.5rem',
+                          fontSize: '1.5rem',
+                          borderRadius: '4px',
+                          border: '2px solid black',
+                          backgroundColor: 'lightgray',
+                          color: 'black',
+                          textAlign: 'center'
+                      }}
+                        secure />
+                      </div>
+                      <div className="mt-8 w-50 flex justify-center">
+                          
+                          <button
+                            onClick={verifyCode}
+                            className="bg-blue-500 h-9 text-white font-bold py-2 px-4 w-50 rounded hover:bg-blue-600 flex justify-center items-center"
+                          >
+                            {loading && (
+                              <>
+                                <CgSpinner
+                                  size={20}
+                                  className="mr-2 animate-spin"
+                                />
+                              </>
+                            )}
+                            <span>Verify</span>
+                          </button>
+                        </div>
                     </>
                   )}
                 </div>
