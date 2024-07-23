@@ -74,7 +74,7 @@ function Navbar() {
         setConfirmationResult(confirmationResult);
         console.log("SMS sent");
         setloading(false);
-        alert("Finally Got login");
+        alert("Sent OTP to You😃");
       })
       .catch((error) => {
         // Error; SMS not sent
@@ -91,6 +91,8 @@ function Navbar() {
           const user = result.user;
           console.log("User signed in", user);
           setloading1(false);
+          setDivVisibleFrologin(false)
+          alert("Login 🤗 Success")
         })
         .catch((error) => {
           // User couldn't sign in (bad verification code?)
