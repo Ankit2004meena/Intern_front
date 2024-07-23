@@ -51,14 +51,17 @@ function Navbar() {
   };
 
   const onSignup = () => {
+    setloading(true);
+    setShowOTP(true);
     setupRecaptcha();
     const appVerifier = window.recaptchaVerifier;
-    const phone="+919685741236";
+    const phone="+"+ph;
     signInWithPhoneNumber(auth,phone, appVerifier)
       .then((confirmationResult) => {
         // SMS sent. Prompt user to type the code from the message.
         setConfirmationResult(confirmationResult);
         console.log("SMS sent");
+        alert("Finally Got login");
       })
       .catch((error) => {
         // Error; SMS not sent
