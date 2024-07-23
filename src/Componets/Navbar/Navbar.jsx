@@ -28,8 +28,9 @@ function Navbar() {
   //currently setting to true
   const [isFrench, setisFrench] = useState(true);
   const [loading, setloading] = useState(false);
+  const [loading1,setloading1]=useState(false);
   const [ph, setPh] = useState("");
-  const [ShowOTP, setShowOTP] = useState(true);
+  const [ShowOTP, setShowOTP] = useState(false);
   const [otp, setOtp] = useState("");
   const [confirmationResult, setConfirmationResult] = useState(null);
   const loginFunction = () => {
@@ -72,6 +73,7 @@ function Navbar() {
         // SMS sent. Prompt user to type the code from the message.
         setConfirmationResult(confirmationResult);
         console.log("SMS sent");
+        setloading(false);
         alert("Finally Got login");
       })
       .catch((error) => {
@@ -80,6 +82,7 @@ function Navbar() {
       });
   };
   const verifyCode = () => {
+    setloading1(true);
     if (confirmationResult) {
       confirmationResult
         .confirm(otp)
@@ -87,6 +90,7 @@ function Navbar() {
           // User signed in successfully.
           const user = result.user;
           console.log("User signed in", user);
+          setloading1(false);
         })
         .catch((error) => {
           // User couldn't sign in (bad verification code?)
@@ -370,7 +374,7 @@ function Navbar() {
                             onClick={verifyCode}
                             className="bg-blue-500 h-9 text-white font-bold py-2 px-4 w-50 rounded hover:bg-blue-600 flex justify-center items-center"
                           >
-                            {loading && (
+                            {loading1 && (
                               <>
                                 <CgSpinner
                                   size={20}
