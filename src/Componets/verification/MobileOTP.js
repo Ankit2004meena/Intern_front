@@ -86,11 +86,11 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
             />
             <div id="recaptcha-container"></div>
            
-            {mobile && (
+           
         <Button onClick={onSignup} color="primary" variant="contained" disabled={loading}>
           {loading ? <CircularProgress size={24} /> : 'Send OTP'}
         </Button>
-      )}
+      )
           </>
         ) : (
           <>
