@@ -1,0 +1,38 @@
+{
+    "Navbar": {
+      "home": "Home",
+      "internships": "Internships",
+      "jobs": "Jobs",
+      "searchPlaceholder": "Search",
+      "login": " Login ",
+      "signup": "Sign Up",
+      "profile": "Profile",
+      "admin": "Admin",
+      "hire_talent": "Hire talent",
+      "logout": "Logout"
+    },
+    "Home": {
+    "welcome": "Make your dream career a reality",
+    "trending": "Trending on InternArea 🔥",
+    "latest_internships": "Latest internships on Intern Area",
+    "popular_categories": "POPULAR CATEGORIES :",
+    "actively_hiring": "Actively Hiring",
+    "view_details": "View details",
+    "internship": "Internship",
+    "companies_hiring": " companies hiring",
+    "new_openings": "new openings everyday",
+    "active_students": " active students",
+    "learners": " learners",
+    "empower_career": "Empower your career with InternArea today",
+    "sign_in_google": "Sign in with Google",
+    "register": "Register",
+    "big_brands": "Big Brands",
+    "work_from_home": "Work From Home",
+    "part_time": "Part-time",
+    "mba": "MBA",
+    "engineering": "Engineering",
+    "media": "Media",
+    "design": "Design",
+    "data_science": "Data Science"
+  }
+  }

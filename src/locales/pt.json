@@ -1,0 +1,39 @@
+{
+    "Navbar": {
+      "home": "Início",
+      "internships": "Estágios",
+      "jobs": "Empregos",
+      "searchPlaceholder": "Pesquisar",
+      "login": "Entrar",
+      "signup": "Inscrever-se",
+      "profile": "Perfil",
+      "admin": "Administrador",
+      "hire_talent": "Contratar talentos",
+      "logout": "Sair"
+    },
+    "Home": {
+      "welcome": "Torne seu sonho de carreira uma realidade",
+      "trending": "Tendências no InternArea 🔥",
+      "latest_internships": "Últimos estágios no Intern Area",
+      "popular_categories": "CATEGORIAS POPULARES :",
+      "actively_hiring": "Contratando ativamente",
+      "view_details": "Ver detalhes",
+      "internship": "Estágio",
+      "companies_hiring": " empresas contratando",
+      "new_openings": " novas vagas todos os dias",
+      "active_students": " estudantes ativos",
+      "learners": " aprendizes",
+      "empower_career": "Empodere sua carreira com InternArea hoje",
+      "sign_in_google": "Entrar com Google",
+      "register": "Registrar",
+      "big_brands": "Grandes Marcas",
+      "work_from_home": "Trabalho Remoto",
+      "part_time": "Meio Período",
+      "mba": "MBA",
+      "engineering": "Engenharia",
+      "media": "Mídia",
+      "design": "Design",
+      "data_science": "Ciência de Dados"
+    }
+  }
+  

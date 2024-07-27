@@ -1,0 +1,39 @@
+{
+    "Navbar": {
+      "home": "Inicio",
+      "internships": "Pasantías",
+      "jobs": "Trabajos",
+      "searchPlaceholder": "Buscar",
+      "login": "Iniciar sesión",
+      "signup": "Registrarse",
+      "profile": "Perfil",
+      "admin": "Administrador",
+      "hire_talent": "Contratar talento",
+      "logout": "Cerrar sesión"
+    },
+    "Home": {
+    "welcome": "Haz realidad tu carrera soñada",
+    "trending": "Tendencias en InternArea 🔥",
+    "latest_internships": "Últimas pasantías en Intern Area",
+    "popular_categories": "CATEGORÍAS POPULARES :",
+    "actively_hiring": "Contratación Activa",
+    "view_details": "Ver detalles",
+    "internship": "Pasantía",
+    "companies_hiring": "empresas contratando",
+    "new_openings": " nuevas vacantes todos los días",
+    "active_students": " estudiantes activos",
+    "learners": "aprendices",
+    "empower_career": "Potencia tu carrera con InternArea hoy",
+    "sign_in_google": "Iniciar sesión con Google",
+    "register": "Registrarse",
+    "big_brands": "Grandes Marcas",
+    "work_from_home": "Trabajo desde casa",
+    "part_time": "Medio tiempo",
+    "mba": "MBA",
+    "engineering": "Ingeniería",
+    "media": "Medios",
+    "design": "Diseño",
+    "data_science": "Ciencia de Datos"
+  }
+  }
+  

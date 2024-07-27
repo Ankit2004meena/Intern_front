@@ -1,0 +1,39 @@
+{
+    "Navbar": {
+      "home": "Accueil",
+      "internships": "Stages",
+      "jobs": "Emplois",
+      "searchPlaceholder": "Rechercher",
+      "login": "Connexion",
+      "signup": "S'inscrire",
+      "profile": "Profil",
+      "admin": "Administrateur",
+      "hire_talent": "Embaucher des talents",
+      "logout": "Se déconnecter"
+    },
+    "Home": {
+      "welcome": "Réalisez votre carrière de rêve",
+      "trending": "Tendance sur InternArea 🔥",
+      "latest_internships": "Derniers stages sur Intern Area",
+      "popular_categories": "CATÉGORIES POPULAIRES :",
+      "actively_hiring": "Recrutement actif",
+      "view_details": "Voir les détails",
+      "internship": "Stage",
+      "companies_hiring": " entreprises embauchant",
+      "new_openings": " nouvelles ouvertures chaque jour",
+      "active_students": " étudiants actifs",
+      "learners": " apprenants",
+      "empower_career": "Boostez votre carrière avec InternArea dès aujourd'hui",
+      "sign_in_google": "Se connecter avec Google",
+      "register": "S'inscrire",
+      "big_brands": "Grandes Marques",
+      "work_from_home": "Travail à Domicile",
+      "part_time": "Temps Partiel",
+      "mba": "MBA",
+      "engineering": "Ingénierie",
+      "media": "Média",
+      "design": "Design",
+      "data_science": "Science des Données"
+    }
+  }
+  

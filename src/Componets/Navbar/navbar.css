@@ -25,7 +25,7 @@ ul p{
 }
 .search{
     position: relative;
-    left: 34%;
+    left: 21%;
     margin-top: 15px;
 }
 .search i{
@@ -43,7 +43,7 @@ ul p{
 }
 .auth{
     position: relative;
-    left: 33%;
+    left:22%;
     margin-top: 1.5rem;
     display: flex;
     justify-content: space-around;
@@ -51,8 +51,11 @@ ul p{
 .btn1{
     color: #078edd;
     outline: #078edd 2px solid;
+    padding:5px;
+    padding-bottom: 2px;
     border: none;
-    width: 60px;
+    width: auto;
+    font-weight: 500;
     margin-right: -52px;
     height: 25px;
     font-size: 16px;
@@ -73,9 +76,9 @@ ul p{
 
 .hire{
     position: relative;
-    left: 33%;
+    left: 23%;
 justify-content: center;
-margin-top: 20px;
+margin-top: 26px;
 height: 30px;
 margin-left: 23px;
 font-weight: 500;
@@ -91,8 +94,8 @@ font-weight: 500;
     outline: #078edd 2px solid;
     background-color: #078edd;
     border: none;
-    width: 70px;
-       margin-left: 0px;
+    width: auto;
+       margin-left: -130%;
     height: 25px;
     font-size: 16px;
     border-radius: 2px;

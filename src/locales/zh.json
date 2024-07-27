@@ -1,0 +1,38 @@
+{
+    "Navbar": {
+      "home": "首页",
+      "internships": "实习",
+      "jobs": "职位",
+      "searchPlaceholder": "搜索",
+      "login": "登录",
+      "signup": "注册",
+      "profile": "个人资料",
+      "admin": "管理员",
+      "hire_talent": "招聘人才",
+      "logout": "登出"
+    },"Home": {
+    "welcome": "让你的梦想职业成真",
+    "trending": "InternArea 上的热门趋势 🔥",
+    "latest_internships": "Intern Area 最新实习",
+    "popular_categories": "热门类别 :",
+    "actively_hiring": "正在积极招聘",
+    "view_details": "查看详情",
+    "internship": "实习",
+    "companies_hiring": " 公司在招聘",
+    "new_openings": "每天  新职位",
+    "active_students": " 活跃学生",
+    "learners": " 学员",
+    "empower_career": "今天就用 InternArea 赋能你的职业",
+    "sign_in_google": "用 Google 登录",
+    "register": "注册",
+    "big_brands": "大品牌",
+    "work_from_home": "远程工作",
+    "part_time": "兼职",
+    "mba": "MBA",
+    "engineering": "工程",
+    "media": "媒体",
+    "design": "设计",
+    "data_science": "数据科学"
+  }
+  }
+  
