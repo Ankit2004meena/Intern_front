@@ -579,6 +579,7 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 import Sidebar from "./Sidebar";
 import OTPInput from "otp-input-react";
+import { CgSpinner } from "react-icons/cg";
 import {
   signInWithPhoneNumber,
   signInWithPopup,
@@ -589,7 +590,6 @@ import { auth, provider } from "../../firebase/firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../Feature/Userslice";
 import { useNavigate } from "react-router-dom";
-import { CgSpinner } from "react-icons/cg";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import emailjs from '@emailjs/browser';
@@ -610,8 +610,8 @@ function Navbar() {
   const [loading1,setloading1]=useState(false);
   const [ph, setPh] = useState("");
   const [ShowOTP, setShowOTP] = useState(false);
-  const [otp, setOtp] = useState("");
   const [confirmationResult, setConfirmationResult] = useState(null);
+  const [otp, setOtp] = useState("");
   const [email, setEmail] = useState('');
   const [eotp, seteotp] = useState('');
   const [generatedeOtp, setGeneratedeotp] = useState('');

@@ -4,120 +4,176 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, C
 import { auth } from '../../firebase/firebase';
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
 import PhoneInput from "react-phone-input-2";
-
+import OTPInput from "otp-input-react";
+import { CgSpinner } from "react-icons/cg";
 const MobileOTP = ({ open, onClose, onVerify, language }) => {
-  const [mobile, setMobile] = useState('');
-  const [otp, setOtp] = useState('');
+  // const [isFrench, setisFrench] = useState(true);
+  const [loading, setloading] = useState(false);
+  const [loading1,setloading1]=useState(false);
+  
+  const [ph, setPh] = useState("");
+  const [ShowOTP, setShowOTP] = useState(false);
   const [confirmationResult, setConfirmationResult] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [loading1, setLoading1] = useState(false);
-  const [showOTP, setShowOTP] = useState(false);
+  const [otp, setOtp] = useState("");
   useEffect(() => {
-    if (showOTP) {
+    if (ShowOTP) {
       setupRecaptcha();
     }
-  }, [showOTP]);
+  }, [ShowOTP]);
 
   const setupRecaptcha = () => {
-    window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
-      size: 'invisible',
-      callback: (response) => {
-        console.log('reCAPTCHA solved');
-      },
-      'expired-callback': () => {
-        console.log('reCAPTCHA expired');
-      },
-    }, auth);
+    window.recaptchaVerifier = new RecaptchaVerifier(
+      auth,
+      "recaptcha-container",
+      {
+        size: "invisible",
+        callback: (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          console.log("reCAPTCHA solved");
+        },
+        "expired-callback": () => {
+          // Response expired. Ask user to solve reCAPTCHA again.
+          console.log("reCAPTCHA expired");
+        },
+      }
+    );
   };
-
-
   const onSignup = () => {
-    setLoading(true);
+    setloading(true);
     setShowOTP(true);
+    setupRecaptcha();
     const appVerifier = window.recaptchaVerifier;
-    const phone = '+' + mobile;
+    const phone = "+" + ph;
     console.log(phone);
     signInWithPhoneNumber(auth, phone, appVerifier)
       .then((confirmationResult) => {
+        // SMS sent. Prompt user to type the code from the message.
         setConfirmationResult(confirmationResult);
-        console.log('SMS sent');
-        setLoading(false);
-        alert('Sent OTP to you 😃');
+        console.log("SMS sent");
+        setloading(false);
+        alert("Sent OTP to You😃");
       })
       .catch((error) => {
-        console.error('Error during sign-in', error);
-        setLoading(false);
+        // Error; SMS not sent
+        console.error("Error during sign-in", error);
       });
   };
-
   const verifyCode = () => {
-    setLoading1(true);
+    setloading1(true);
     if (confirmationResult) {
-      confirmationResult.confirm(otp)
+      confirmationResult
+        .confirm(otp)
         .then((result) => {
-          const user = result.user;
-          console.log('User signed in', user);
-          setLoading1(false);
-          alert('Login 🤗 Success');
           onVerify(language);
-          onClose();
+          // User signed in successfully.
+          const user = result.user;
+          console.log("User signed in", user);
+          setloading1(false);
+          alert("Login 🤗 Success");
+          setShowOTP(false);
+          setPh('');
+
         })
         .catch((error) => {
-          console.error('Error verifying code', error);
-          setLoading1(false);
+          // User couldn't sign in (bad verification code?)
+          console.error("Error verifying code", error);
         });
     }
   };
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Verify Your Mobile</DialogTitle>
-      <DialogContent>
-        {!showOTP ? (
-          <>
-            <PhoneInput
+      
+      <div className="flex flex-col items-center w-full">
+                        <label className="font-bold text-xl text-gray-800 text-center m-4">
+                          Verify your phone number
+                        </label>
+
+                        <PhoneInput
                           country={"in"}
-                          value={mobile}
-                          onChange={setMobile}
+                          value={ph}
+                          onChange={setPh}
                           containerStyle={{
-                            width: "65%",
+                            width: "80%",
                             marginLeft: "10%",
                             overflow: "hidden visible",
+                            margin:"15px"
                           }}
                           inputStyle={{
-                            width: "80%",
+                            width: "100%",
                             border: "2px solid gray",
                           }}
                         />
-            <div id="recaptcha-container"></div>
-           
-           
-        <Button onClick={onSignup} color="primary" variant="contained" disabled={loading}>
-          {loading ? <CircularProgress size={24} /> : 'Send OTP'}
-        </Button>
-      
-          </>
-        ) : (
-          <>
-            <TextField
-              margin="dense"
-              label="Enter OTP"
-              type="text"
-              fullWidth
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
-            />
-            <Button onClick={verifyCode} color="primary" variant="contained" disabled={loading1}>
-              {loading1 ? <CircularProgress size={24} /> : 'Verify OTP'}
-            </Button>
-          </>
-        )}
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={onClose} color="primary">Cancel</Button>
-      </DialogActions>
+                        <div>{}</div>
+                        <div className="mt-8 w-50 flex justify-center">
+                          
+                          <button
+                            onClick={onSignup}
+                            className="bg-blue-500 h-9 text-white font-bold py-2 px-4 w-50 m-5 rounded hover:bg-blue-600 flex justify-center items-center"
+                          >
+                            {loading && (
+                              <>
+                                <CgSpinner
+                                  size={20}
+                                  className="mr-2 animate-spin"
+                                />
+                              </>
+                            )}
+                            <span>Send code via SMS</span>
+                          </button>
+                        </div>
+                      </div>
+                      {ShowOTP && (
+                    <>
+                      <div className="flex flex-col items-center w-full my-5">
+                        <label
+                          htmlfor="otp"
+                          className="font-bold text-xl text-gray-800 text-center mb-4"
+                        >
+                          Verify your phone number
+                        </label>
+                        <OTPInput value={otp} 
+                        onChange={setOtp} 
+                        autoFocus 
+                        OTPLength={6} 
+                        otpType="number" 
+                        disabled={false} 
+                        inputStyles={{
+                          width: '3rem',
+                          height: '3rem',
+                          margin: '0 0.5rem',
+                          fontSize: '1.5rem',
+                          borderRadius: '4px',
+                          border: '2px solid black',
+                          backgroundColor: 'lightgray',
+                          color: 'black',
+                          textAlign: 'center'
+                      }}
+                        secure />
+                      </div>
+                      <div className="mt-8 w-50 flex justify-center">
+                          
+                          <button
+                             onClick={() => {
+                              verifyCode();
+                             
+                            }}
+                            className="bg-blue-500 h-9 text-white font-bold py-2 px-4 w-50 rounded hover:bg-blue-600 flex justify-center items-center"
+                          >
+                            {loading1 && (
+                              <>
+                                <CgSpinner
+                                  size={20}
+                                  className="mr-2 animate-spin"
+                                />
+                              </>
+                            )}
+                            <span>Verify</span>
+                          </button>
+                        </div>
+                    </>
+                  )}
     </Dialog>
-  );
-};
-
+  )
+}
 export default MobileOTP;
