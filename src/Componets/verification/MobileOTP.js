@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, CircularProgress } from '@mui/material';
 import { auth } from '../../firebase/firebase';
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
+import PhoneInput from "react-phone-input-2";
 
 const MobileOTP = ({ open, onClose, onVerify, language }) => {
   const [mobile, setMobile] = useState('');
@@ -11,7 +12,6 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
   const [loading, setLoading] = useState(false);
   const [loading1, setLoading1] = useState(false);
   const [showOTP, setShowOTP] = useState(false);
-
   useEffect(() => {
     if (showOTP) {
       setupRecaptcha();
@@ -75,22 +75,27 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
       <DialogContent>
         {!showOTP ? (
           <>
-            <TextField
-              autoFocus
-              margin="dense"
-              label="Mobile Number"
-              type="text"
-              fullWidth
-              value={mobile}
-              onChange={(e) => setMobile(e.target.value)}
-            />
+            <PhoneInput
+                          country={"in"}
+                          value={mobile}
+                          onChange={setMobile}
+                          containerStyle={{
+                            width: "65%",
+                            marginLeft: "10%",
+                            overflow: "hidden visible",
+                          }}
+                          inputStyle={{
+                            width: "80%",
+                            border: "2px solid gray",
+                          }}
+                        />
             <div id="recaptcha-container"></div>
            
            
         <Button onClick={onSignup} color="primary" variant="contained" disabled={loading}>
           {loading ? <CircularProgress size={24} /> : 'Send OTP'}
         </Button>
-      )
+      
           </>
         ) : (
           <>
