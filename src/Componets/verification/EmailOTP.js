@@ -41,13 +41,13 @@ const EmailOTP = ({ open, onClose, onVerify, language }) => {
 
   const handleVerifyOtp = async () => {
     if (otp === generatedOtp) {
-    //   try {
-    //     await signInWithEmailAndPassword(auth, email, 'dummyPassword');
-    //   } catch (error) {
-    //     if (error.code === 'auth/user-not-found') {
-    //       await createUserWithEmailAndPassword(auth, email, 'dummyPassword');
-    //     }
-    //   }
+      try {
+        await signInWithEmailAndPassword(auth, email, 'dummyPassword');
+      } catch (error) {
+        if (error.code === 'auth/user-not-found') {
+          await createUserWithEmailAndPassword(auth, email, 'dummyPassword');
+        }
+      }
       alert('OTP verified successfully!');
       onVerify(language);
       onClose();

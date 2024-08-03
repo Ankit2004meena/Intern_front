@@ -116,7 +116,7 @@ function App() {
   const dispatch = useDispatch();
   const [authState, setAuthState] = useState({ authenticated: false, browserCheck: false });
   const [showOTPDialog, setShowOTPDialog] = useState(false);
-  const [userId, setUserId] = useState('Ankit'); // Replace with actual user ID fetching logic
+  const [userId, setUserId] = useState(''); // Replace with actual user ID fetching logic
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -138,7 +138,7 @@ function App() {
 
   useEffect(() => {
     const checkUserDeviceAndAuth = async () => {
-      if (userId) {
+{
         const { browser, deviceType } = getDeviceDetails();
         const currentHour = new Date().getHours();
         const isWithinAllowedTime = currentHour >= 12 && currentHour < 13;
@@ -146,7 +146,7 @@ function App() {
         if (deviceType === 'Mobile') {
 
           if (isWithinAllowedTime) {
-            // await trackUserLogin(userId, getDeviceDetails());
+            await trackUserLogin(userId, getDeviceDetails());
             setShowOTPDialog(true);
             // setAuthState({ authenticated: true });
           } else {
@@ -159,7 +159,7 @@ function App() {
         if (browser === 'Chrome') {
           setShowOTPDialog(true);
         } else {
-          // await trackUserLogin(userId, getDeviceDetails());
+           await trackUserLogin(userId, getDeviceDetails());
           setAuthState({ authenticated: true });
         }
       }}
