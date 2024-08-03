@@ -33,6 +33,7 @@
     "react-toastify": "^10.0.5",
     "redux": "^5.0.1",
     "twilio": "^5.2.2",
+    "ua-parser-js": "^1.0.38",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
