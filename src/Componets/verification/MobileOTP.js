@@ -6,11 +6,12 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
 import PhoneInput from "react-phone-input-2";
 import OTPInput from "otp-input-react";
 import { CgSpinner } from "react-icons/cg";
+import { trackUserLogin, getDeviceDetails } from '../../utils/trackUserLogin';
 const MobileOTP = ({ open, onClose, onVerify, language }) => {
   // const [isFrench, setisFrench] = useState(true);
   const [loading, setloading] = useState(false);
   const [loading1,setloading1]=useState(false);
-  
+  const [userId, setUserId] = useState(''); 
   const [ph, setPh] = useState("");
   const [ShowOTP, setShowOTP] = useState(false);
   const [confirmationResult, setConfirmationResult] = useState(null);
@@ -58,26 +59,35 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
         console.error("Error during sign-in", error);
       });
   };
-  const verifyCode = () => {
-    setloading1(true);
-    if (confirmationResult) {
-      confirmationResult
-        .confirm(otp)
-        .then((result) => {
+  const verifyCode = async () => {
+    setLoading1(true); // Ensure this is a valid state updater
+    try {
+      if (confirmationResult) {
+        const result = await confirmationResult.confirm(otp);
+        // User signed in successfully.
+        const user = result.user;
+        console.log("User signed in", user);
+        alert("Login 🤗 Success");
+  
+        const currentUser = auth.currentUser;
+        if (currentUser) {
+          const userId = currentUser.uid; // Get the UID of the current user
+          setUserId(userId);
+  
+          // Track user login with the current user's ID and device details
+          await trackUserLogin(userId);
+  
+          // Additional operations after successful login
           onVerify(language);
-          // User signed in successfully.
-          const user = result.user;
-          console.log("User signed in", user);
-          setloading1(false);
-          alert("Login 🤗 Success");
           setShowOTP(false);
           setPh('');
-
-        })
-        .catch((error) => {
-          // User couldn't sign in (bad verification code?)
-          console.error("Error verifying code", error);
-        });
+        }
+      }
+    } catch (error) {
+      console.error("Error verifying code", error);
+      alert("Error verifying code. Please try again.");
+    } finally {
+      setLoading1(false); // Ensure loading state is reset in both success and error scenarios
     }
   };
 

@@ -4,13 +4,13 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } 
 import emailjs from 'emailjs-com';
 import { auth } from '../../firebase/firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-
+import { trackUserLogin, getDeviceDetails } from '../../utils/trackUserLogin';
 const EmailOTP = ({ open, onClose, onVerify, language }) => {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
   const [generatedOtp, setGeneratedOtp] = useState('');
   const [isOtpSent, setIsOtpSent] = useState(false);
-
+  const [userId, setUserId] = useState(''); 
   const sendOTPEmail = async (email, eotp) => {
     const serviceID = 'service_gkc14qf';
     const templateID = 'template_aihm098';
@@ -39,7 +39,7 @@ const EmailOTP = ({ open, onClose, onVerify, language }) => {
     setIsOtpSent(true);
   };
 
-  const handleVerifyOtp = async () => {
+  const handleVerifyOtp =  async() => {
     if (otp === generatedOtp) {
       try {
         await signInWithEmailAndPassword(auth, email, 'dummyPassword');
@@ -48,9 +48,21 @@ const EmailOTP = ({ open, onClose, onVerify, language }) => {
           await createUserWithEmailAndPassword(auth, email, 'dummyPassword');
         }
       }
-      alert('OTP verified successfully!');
-      onVerify(language);
-      onClose();
+    //  // Get the current user ID
+    //  const currentUser = auth.currentUser;
+    //  if (currentUser) {
+    //    const userId = currentUser.uid; // Get the UID of the current user
+    //    setUserId(userId);
+    //    console.log('UserID:', userId);
+    //    console.log('Device Details:', getDeviceDetails());
+       
+    //    // Track user login with the current user's ID and device details
+    // trackUserLogin(userId,getDeviceDetails);
+ 
+    //    alert('OTP verified successfully!');
+    //    onVerify(language);
+    //    onClose();
+    //  } 
     } else {
       alert('Invalid OTP. Please try again.');
     }

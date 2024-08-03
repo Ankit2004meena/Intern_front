@@ -777,6 +777,7 @@ function Navbar() {
     signOut(auth);
     navigate("/");
   };
+ 
 
   return (
     <div>
@@ -850,10 +851,14 @@ function Navbar() {
             </>
           )}
           {user ? (
-            <>
+            <><div className="auth">
+              <button className="bt-log" id="bt" >
+              <Link to="/loginHistory"> LoginHistory</Link>
+              </button>
               <button className="bt-log" id="bt" onClick={logoutFunction}>
                  {t('Navbar.logout')} <i class="bi bi-box-arrow-right"></i>
               </button>
+              </div>
             </>
           ) : (
             <>
@@ -1028,7 +1033,7 @@ function Navbar() {
                   )}
                 </div>
                 {/* commenting google part */}
-                {/* <div className="py-2">
+                <div className="py-2">
 
 
                     <div className="flex bg-white rounded-lg justify-center overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
@@ -1073,7 +1078,7 @@ function Navbar() {
 </div>
                     </div>
                 </div>
-                 */}
+                
               </>
             ) : (
               <>
