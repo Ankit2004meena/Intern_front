@@ -7,7 +7,7 @@ const LoginHistory = ({ userId }) => {
   useEffect(() => {
     const fetchLoginHistory = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/login-history/user/${userId}/history`);
+        const response = await axios.get(`https://intern-backend-kneh.onrender.com/api/login-history/user/${userId}/history`);
         setLoginHistory(response.data);
       } catch (error) {
         console.error('Error fetching login history:', error);
