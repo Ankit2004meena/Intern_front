@@ -9,7 +9,10 @@
       "profile": "Perfil",
       "admin": "Administrador",
       "hire_talent": "Contratar talento",
-      "logout": "Cerrar sesión"
+      "logout": "Cerrar sesión",
+      "LoginHistory": "Historial de inicio de sesión",
+        "background-image1": "linear-gradient(180deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)",
+        "background-image2": "linear-gradient(180deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)"
     },
     "Home": {
     "welcome": "Haz realidad tu carrera soñada",
@@ -33,7 +36,9 @@
     "engineering": "Ingeniería",
     "media": "Medios",
     "design": "Diseño",
-    "data_science": "Ciencia de Datos"
+    "data_science": "Ciencia de Datos",
+    "background-image1": "linear-gradient(135deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)",
+        "background-image2": "linear-gradient(135deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)"
   }
   }
   

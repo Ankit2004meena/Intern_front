@@ -4,9 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { FormControl, InputLabel, MenuItem, Select, CircularProgress, Box } from '@mui/material';
 import EmailOTP from '../verification/EmailOTP';
 import MobileOTP from '../verification/MobileOTP';
+// import { t } from 'i18next';
 
 const LanguageSelector = ({ onLanguageChange }) => {
   const { i18n } = useTranslation();
+  const {t}=useTranslation();
   const [language, setLanguage] = useState(i18n.language);
   const [openEmailOTP, setOpenEmailOTP] = useState(false);
   const [openMobileOTP, setOpenMobileOTP] = useState(false);
@@ -47,9 +49,20 @@ const LanguageSelector = ({ onLanguageChange }) => {
     setOpenEmailOTP(false);
     setOpenMobileOTP(false);
   };
-
+  const backgroundImage = t('Navbar.background-image1');
+  const backgroundImage2=t('Navbar.background-image2');
+  const sectionStyle = {
+    backgroundImage: backgroundImage,
+    backgroundSize: 'cover', // You can adjust this depending on your needs
+    backgroundPosition: 'center',
+  };
+  const sectionStyle2 = {
+    backgroundImage: backgroundImage2,
+    
+  };
   return (
-    <div className='my-3'>
+    <div style={sectionStyle}>
+    <div style={sectionStyle2} className='' >
       <FormControl variant="outlined" fullWidth>
         <InputLabel id="language-selector-label">Language</InputLabel>
         <Select
@@ -87,6 +100,7 @@ const LanguageSelector = ({ onLanguageChange }) => {
         onVerify={handleVerify}
         language={language}
       />
+    </div>
     </div>
   );
 };

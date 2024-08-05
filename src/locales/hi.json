@@ -9,7 +9,10 @@
       "profile": "प्रोफ़ाइल",
       "admin": "व्यवस्थापक",
       "hire_talent": "प्रतिभा की भर्ती",
-      "logout": "लॉग आउट"
+      "logout": "लॉग आउट",
+        "LoginHistory": "लॉगिन इतिहास",
+      "background-image1": "linear-gradient(180deg, #96deda 10%, #50c9c3 100%)",
+      "background-image2": "linear-gradient(180deg, #43CBFF 10%, #9708CC 100%)"
     },
     "Home": {
       "welcome": "अपने सपनों का करियर हकीकत बनाएं",
@@ -33,7 +36,9 @@
       "engineering": "इंजीनियरिंग",
       "media": "मीडिया",
       "design": "डिज़ाइन",
-      "data_science": "डेटा साइंस"
+      "data_science": "डेटा साइंस",
+      "background-image1": "linear-gradient(135deg, #96deda 10%, #50c9c3 100%)",
+      "background-image2": "linear-gradient(135deg, #43CBFF 10%, #9708CC 100%)"
     }
   }
   

@@ -8,8 +8,9 @@ import Job from './Job'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-function Home() {
 
+function Home() {
+    // const { backgroundColor } = useColor();
     const { t } = useTranslation();
     const [currentSlide,setCurrentSlide]=useState(0)
     const [selectedCategory,setSelectedCategory]= useState("Big Brands")
@@ -25,7 +26,17 @@ useEffect(()=>{
 }
 fetchData();
 },[])
-
+const backgroundImage = t('Home.background-image1');
+const backgroundImage2=t('Home.background-image2');
+const sectionStyle = {
+  backgroundImage: backgroundImage,
+  backgroundSize: 'cover', // You can adjust this depending on your needs
+  backgroundPosition: 'center',
+};
+const sectionStyle2 = {
+  backgroundImage: backgroundImage2,
+  
+};
 const filterInternShips=internshipData.filter((item)=>
     !selectedCategory ||item.category === selectedCategory
 )
@@ -53,9 +64,12 @@ const filterInternShips=internshipData.filter((item)=>
         }
         sideScrollIntern(contianer, direction, 25, step, 10)
     }
+    
+ 
   return (
     <>
-   <h1 className='text-center text-3xl font-bold'>{t('Home.welcome')}
+    <div style={sectionStyle}>
+   <h1 className='text-center text-3xl font-bold' >{t('Home.welcome')}
 </h1>
 <p className='text-center text-lg font-bold'>{t('Home.trending')}</p>
 
@@ -73,8 +87,8 @@ const filterInternShips=internshipData.filter((item)=>
 </div>
 
 
-<div className="infoys">
-    <div className="info-intern">
+<div className="infoys" style={sectionStyle2}>
+    <div className="info-intern" >
         <div className="mt-16">
             <h1 className='text-center font-bold'>{t('Home.latest_internships')}</h1>
         </div>
@@ -97,12 +111,12 @@ const filterInternShips=internshipData.filter((item)=>
 ""}`} onClick={()=>setSelectedCategory("Data Science")}>{t('Home.data_science')}</span>
         </div>
         </div>
-        <div className="internships" id='container2'>
-<div className="internShip-Info flex">
+        <div className="internships" id='container2' style={sectionStyle}>
+<div className="internShip-Info flex"  >
 {
 filterInternShips.map(( data,index)=>(
       
-        <div className="int-1 mt-6" key={index}>
+        <div className="int-1 mt-6" key={index} style={sectionStyle2}>
 <p className='mb-4 mt-3' id='boxer'> <i className='bi bi-arrow-up-right text-blue-500' ></i>{t('Home.actively_hiring')}</p>
 <p>{data.title}</p>
 <small className='text-slate-400 text-sm'>{data.company}</small>
@@ -154,7 +168,7 @@ filterInternShips.map(( data,index)=>(
 </div>
 </div>
 
-<div className="logins flex  h-32 mt-8">
+<div className="logins flex  h-32 mt-8" >
 <div className="cont">
 <p className="flex justify-center text-white text-xl items-center m-5 w-30">{t('Home.empower_career')}</p>
 </div>
@@ -175,6 +189,7 @@ filterInternShips.map(( data,index)=>(
   <a to="/register">
     <button className='btn6 '>{t('Home.register')}</button></a>
     </div>
+</div>
 </div>
     </>
   )

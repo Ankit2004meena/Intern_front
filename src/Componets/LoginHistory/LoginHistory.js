@@ -19,7 +19,7 @@ const LoginHistory = ({ userId }) => {
 
   return (
     <div>
-      <h2>Login History</h2>
+
       {loginHistory.length === 0 ? (
         <p>No login history available.</p>
       ) : (
@@ -46,7 +46,7 @@ const LoginHistory = ({ userId }) => {
           </tbody>
         </table> */},
         <>
-        <h1 className='text-3xl font-semibold mt-3'>Total Applications</h1>
+        <h1 className='text-3xl font-semibold mt-3'>Login History</h1>
     <div className="flex justify-center " id='tabel'>
         <div className="applications flex flex-col mt-7">
             <div className="overflow-x-auto sm:-mx-6 lg:mx-8">

@@ -60,7 +60,7 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
       });
   };
   const verifyCode = async () => {
-    setLoading1(true); // Ensure this is a valid state updater
+    setloading1(true); // Ensure this is a valid state updater
     try {
       if (confirmationResult) {
         const result = await confirmationResult.confirm(otp);
@@ -81,13 +81,15 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
           onVerify(language);
           setShowOTP(false);
           setPh('');
+          setloading(false);
+          setloading1(false);
         }
       }
     } catch (error) {
       console.error("Error verifying code", error);
       alert("Error verifying code. Please try again.");
     } finally {
-      setLoading1(false); // Ensure loading state is reset in both success and error scenarios
+      setloading1(false); // Ensure loading state is reset in both success and error scenarios
     }
   };
 

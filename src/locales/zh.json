@@ -9,7 +9,10 @@
       "profile": "个人资料",
       "admin": "管理员",
       "hire_talent": "招聘人才",
-      "logout": "登出"
+      "logout": "登出",
+        "LoginHistory": "登录历史",
+     "background-image1": "linear-gradient(180deg, rgb(57 255 46 / 87%) 39%, rgb(123 231 41) 179%)",
+    "background-image2": "linear-gradient(180deg, #9be15d 10%, #00e3ae 100%)"
     },"Home": {
     "welcome": "让你的梦想职业成真",
     "trending": "InternArea 上的热门趋势 🔥",
@@ -32,7 +35,9 @@
     "engineering": "工程",
     "media": "媒体",
     "design": "设计",
-    "data_science": "数据科学"
+    "data_science": "数据科学",
+    "background-image1": "linear-gradient(220deg, rgb(57 255 46 / 87%) 39%, rgb(123 231 41) 179%)",
+    "background-image2": "linear-gradient(135deg, #9be15d 10%, #00e3ae 100%)"
   }
   }
   

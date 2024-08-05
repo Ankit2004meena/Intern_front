@@ -9,7 +9,10 @@
       "profile": "Perfil",
       "admin": "Administrador",
       "hire_talent": "Contratar talentos",
-      "logout": "Sair"
+      "logout": "Sair",
+      "LoginHistory": "Histórico de login",
+        "background-image1": "linear-gradient(180deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)",
+        "background-image2": "linear-gradient(180deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)"
     },
     "Home": {
       "welcome": "Torne seu sonho de carreira uma realidade",
@@ -33,7 +36,9 @@
       "engineering": "Engenharia",
       "media": "Mídia",
       "design": "Design",
-      "data_science": "Ciência de Dados"
+      "data_science": "Ciência de Dados",
+        "background-image1": "linear-gradient(135deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)",
+        "background-image2": "linear-gradient(135deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)"
     }
   }
   

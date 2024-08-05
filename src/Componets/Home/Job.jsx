@@ -35,10 +35,21 @@ function Job() {
     const filterInternShips=JobData.filter((item)=>
     !selectedCategory ||item.category === selectedCategory
 )
+const backgroundImage = t('Home.background-image1');
+const backgroundImage2=t('Home.background-image2');
+const sectionStyle = {
+  backgroundImage: backgroundImage,
+  backgroundSize: 'cover', // You can adjust this depending on your needs
+  backgroundPosition: 'center',
+};
+const sectionStyle2 = {
+  backgroundImage: backgroundImage2,
+  
+};
   return (
-    <div>
+    <div style={sectionStyle2}>
  
-    <div className="info-intern mt-12">
+    <div className="info-intern mt-12" >
     <div className="categories flex flex-wrap mt-14">
 <p>{t('Home.popular_categories')}</p>
 <span className={`category mr-4 ml-6 ${ selectedCategory==='Big Brands'?'bg-blue-500 text-white':""}`} onClick={()=>setSelectedCategory('Big Brands')}>{t('Home.big_brands')}</span>
@@ -59,11 +70,11 @@ function Job() {
         </div>
         </div>
         <div className="internships" id='container3'>
-<div className="internShip-Info flex">
+<div className="internShip-Info flex" style={sectionStyle}>
 {
 filterInternShips.map(( data,index)=>(
       
-        <div className="int-1 mt-6" key={index}>
+        <div className="int-1 mt-6" key={index} style={sectionStyle2}>
 <p className='mb-4 mt-3' id='boxer'> <i className='bi bi-arrow-up-right text-blue-500' ></i> {t('Home.actively_hiring')}</p>
 <p>{data.title}</p>
 <small className='text-slate-400 text-sm'>{data.company}</small>
