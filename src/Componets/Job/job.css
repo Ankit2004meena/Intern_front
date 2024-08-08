@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    /* overflow-x: hidden; */
 }
 .filter-section{
     width: 37%;
@@ -89,6 +90,14 @@
       .first-int{
         display: none;
       }
+      .info{
+      margin-left: -0rem;
+    } 
+    .all-ele{
+/* margin-top: -45px; */
+position:relative;
+    } 
+     
       .head {
         margin-left: -6rem;
         width: 20%;
@@ -96,6 +105,31 @@
         left: -28%;
   
     }
+    .filter-section{
+      width: 90%;
+      border-radius: 6px;
+      background: #ffff;
+      position: relative;
+      left:-18%;
+      top: 1rem;
+      box-shadow: 0xp 0px 2px -1px ;
+  }
+  #loc{
+    margin-left: 0%;
+    left: 0%;
+    margin-left: 1px;
+  }
+  .search-2{
+    border-radius: 6px;
+    position: relative;
+    left: -18%;
+    box-shadow: 0px 0px 2px -1px black;
+    margin-top: 4rem;
+    margin-bottom: 23px;
+    background: #ffff;
+    height: 90px;
+    width:90%;
+  }
 
       #display{
         position: relative;
@@ -132,6 +166,7 @@
       #filter-ico {
         display: none;
       }
+  
     }
     #viewButtons{
   
@@ -148,11 +183,6 @@
     #viewButtons:hover{
       box-shadow: 0px 0px 2px -1px black;
     }
-    /* .info{
-      margin-left: -34rem;
-    } */
-    .all-ele{
-margin-top: -45px;
-    }
+    
  
   

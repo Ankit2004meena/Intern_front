@@ -63,6 +63,7 @@ const LanguageSelector = ({ onLanguageChange }) => {
   return (
     <div style={sectionStyle}>
     <div style={sectionStyle2} className='' >
+    <div >
       <FormControl variant="outlined" fullWidth>
         <InputLabel id="language-selector-label">Language</InputLabel>
         <Select
@@ -71,6 +72,7 @@ const LanguageSelector = ({ onLanguageChange }) => {
           value={language}
           onChange={handleChange}
           label="Language"
+          
         >
           <MenuItem value="en">English</MenuItem>
           <MenuItem value="es">Spanish</MenuItem>
@@ -80,7 +82,7 @@ const LanguageSelector = ({ onLanguageChange }) => {
           <MenuItem value="fr">French</MenuItem>
         </Select>
       </FormControl>
-
+</div>
       {loading && (
         <Box display="flex" justifyContent="center" mt={2}>
           <CircularProgress />
