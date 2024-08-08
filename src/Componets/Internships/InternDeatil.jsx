@@ -133,7 +133,7 @@ const submitApplication= async()=>{
   <>
   <div className="application-page">
     <div className="bg">
-      <button className='close2' onClick={hide} ><i className='bi-bi-x'></i> close</button>
+      <button className='close2' onClick={hide} ><i class="bi bi-x"></i></button>
       <p>Applyion for  {data.company}</p>
       <p className='mt-3 text-sm font-bold text-start mb-3'>{data.aboutCompany}</p>
 

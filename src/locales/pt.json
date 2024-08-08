@@ -13,7 +13,14 @@
       "LoginHistory": "Histórico de login",
         "background-image1": "linear-gradient(180deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)",
         "background-image2": "linear-gradient(180deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)"
-    },
+   , "profileDropdown": {
+    "topLocations": "Principais Locais",
+    "profile": "Perfil",
+    "topCategory": "Categoria Principal",
+    "exploreMoreInternships": "Explore Mais Estágios",
+    "internAtIndia": "Estágio na Índia"
+  }
+      },
     "Home": {
       "welcome": "Torne seu sonho de carreira uma realidade",
       "trending": "Tendências no InternArea 🔥",
@@ -39,6 +46,70 @@
       "data_science": "Ciência de Dados",
         "background-image1": "linear-gradient(135deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)",
         "background-image2": "linear-gradient(135deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)"
+    }
+    ,
+    
+      "intern": {
+        "filter": "Filtrar",
+        "profile": "Perfil",
+        "profilePlaceholder": "Gerente de perfil",
+        "location": "Localização",
+        "locationPlaceholder": "Mumbai",
+        "workFromHome": "Trabalhar de casa",
+        "partTime": "Meio período",
+        "desiredStipend": "Estipêndio mínimo mensal desejado (₹)",
+        "viewMoreFilters": "Ver mais filtros",
+        "clearAll": "Limpar tudo",
+        "searchPlaceholder": "ex. Design Media MBA",
+        "totalInternships": " estágios no total",
+        "activelyHiring": "Contratação ativa",
+        "startDate": "Data de início",
+        "duration": "Duração",
+        "stipend": "Estipêndio",
+        "internship": "Estágio",
+        "deadline": "Data limite",
+        "viewInDetails": "Ver em detalhes",
+        "experience": "Experiência",
+        "experiencePlaceholder": "ex. 0-1 ano"
+      }
+    , "job": {
+      "filter": "Filtro",
+      "profile": "Perfil",
+      "profilePlaceholder": "Gerente de Perfil",
+      "location": "Localização",
+      "locationPlaceholder": "Mumbai",
+      "workFromHome": "Trabalhar de Casa",
+      "partTime": "Meio Período",
+      "salary": "Salário Anual (em lakhs)",
+      "salaryRange": "0  2K  4k  6K  8k  10K",
+      "experience": "Experiência",
+      "experiencePlaceholder": "ex. 0-1 ano",
+      "totalJobs": "{{count}} empregos no total",
+      "activelyHiring": "Contratação Ativa",
+      "startDate": "Data de Início",
+      "experienceLabel": "Experiência",
+      "salaryLabel": "Salário",
+      "job": "Emprego",
+      "applyBy": "Candidatar-se Até",
+      "viewDetails": "Ver Detalhes",
+      "clearAll": "Limpar Tudo",
+      "viewMoreFilters": "Ver mais filtros"
+    }
+    , "adminLogin": {
+      "contactUs": "Contate-nos",
+      "name": "Nome",
+      "password": "Senha",
+      "login": "Entrar",
+      "fillTheBlanks": "Por favor, preencha todos os campos",
+      "success": "Sucesso"
+    },
+    "adminpanel": {
+      "viewApplications": "Ver candidaturas",
+      "viewApplicationsDescription": "Veja todas as candidaturas recebidas dos candidatos",
+      "postJob": "Publicar vaga",
+      "postJobDescription": "Publique vagas conforme seus requisitos",
+      "postInternship": "Publicar estágios",
+      "postInternshipDescription": "Publique estágios conforme seus requisitos"
     }
   }
   

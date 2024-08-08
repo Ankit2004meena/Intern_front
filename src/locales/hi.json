@@ -12,7 +12,14 @@
       "logout": "लॉग आउट",
         "LoginHistory": "लॉगिन इतिहास",
       "background-image1": "linear-gradient(180deg, #96deda 10%, #50c9c3 100%)",
-      "background-image2": "linear-gradient(180deg, #43CBFF 10%, #9708CC 100%)"
+      "background-image2": "linear-gradient(135deg, rgb(67, 203, 255) 50%, rgb(8 190 204) 80%)"
+    , "profileDropdown": {
+      "topLocations": "शीर्ष स्थान",
+      "profile": "प्रोफ़ाइल",
+      "topCategory": "शीर्ष श्रेणी",
+      "exploreMoreInternships": "अधिक इंटर्नशिप खोजें",
+      "internAtIndia": "भारत में इंटर्न"
+    }
     },
     "Home": {
       "welcome": "अपने सपनों का करियर हकीकत बनाएं",
@@ -37,8 +44,70 @@
       "media": "मीडिया",
       "design": "डिज़ाइन",
       "data_science": "डेटा साइंस",
-      "background-image1": "linear-gradient(135deg, #96deda 10%, #50c9c3 100%)",
-      "background-image2": "linear-gradient(135deg, #43CBFF 10%, #9708CC 100%)"
-    }
+      "background-image1": "linear-gradient(135deg, #96deda 50%, #50c9c3 80%)",
+      "background-image2": "linear-gradient(135deg, rgb(67, 203, 255) 50%, rgb(8 190 204) 80%)"
+    },
+      "intern": {
+        "filter": "फ़िल्टर",
+        "profile": "प्रोफ़ाइल",
+        "profilePlaceholder": "प्रोफ़ाइल प्रबंधक",
+        "location": "स्थान",
+        "locationPlaceholder": "मुंबई",
+        "workFromHome": "घर से काम करें",
+        "partTime": "अंशकालिक",
+        "desiredStipend": "वांछित न्यूनतम मासिक वजीफा (₹)",
+        "viewMoreFilters": "अधिक फ़िल्टर देखें",
+        "clearAll": "सभी साफ़ करें",
+        "searchPlaceholder": "उदा. डिज़ाइन मीडिया एमबीए",
+        "totalInternships": " कुल इंटर्नशिप",
+        "activelyHiring": "सक्रिय रूप से भर्ती",
+        "startDate": "आरंभ तिथि",
+        "duration": "अवधि",
+        "stipend": "वजीफा",
+        "internship": "इंटर्नशिप",
+        "deadline": "समाप्ति तिथि",
+        "viewInDetails": "विवरण में देखें",
+        "experience": "अनुभव",
+        "experiencePlaceholder": "उदा. 0-1 वर्ष"
+      },
+      "job": {
+        "filter": "फ़िल्टर",
+        "profile": "प्रोफ़ाइल",
+        "profilePlaceholder": "प्रोफ़ाइल प्रबंधक",
+        "location": "स्थान",
+        "locationPlaceholder": "मुंबई",
+        "workFromHome": "घर से काम",
+        "partTime": "अंशकालिक",
+        "salary": "वार्षिक वेतन (लाखों में)",
+        "salaryRange": "0  2K  4k  6K  8k  10K",
+        "experience": "अनुभव",
+        "experiencePlaceholder": "उदा. 0-1 वर्ष",
+        "totalJobs": "कुल नौकरियाँ",
+        "activelyHiring": "सक्रिय रूप से भर्ती कर रहे हैं",
+        "startDate": "शुरू होने की तारीख",
+        "experienceLabel": "अनुभव",
+        "salaryLabel": "वेतन",
+        "job": "नौकरी",
+        "applyBy": "आवेदन करने की अंतिम तिथि",
+        "viewDetails": "विवरण देखें",
+        "clearAll": "सभी साफ करें",
+        "viewMoreFilters": "अधिक फ़िल्टर देखें"
+      },
+      "adminLogin": {
+        "contactUs": "हमसे संपर्क करें",
+        "name": "नाम",
+        "password": "पासवर्ड",
+        "login": "लॉगिन करें",
+        "fillTheBlanks": "कृपया सभी फ़ील्ड भरें",
+        "success": "सफलता"
+      },
+      "adminpanel": {
+    "viewApplications": "आवेदन देखें",
+    "viewApplicationsDescription": "आवेदकों से प्राप्त सभी आवेदनों को देखें",
+    "postJob": "नौकरी पोस्ट करें",
+    "postJobDescription": "अपनी आवश्यकताओं के अनुसार नौकरियाँ पोस्ट करें",
+    "postInternship": "इंटर्नशिप पोस्ट करें",
+    "postInternshipDescription": "अपनी आवश्यकताओं के अनुसार इंटर्नशिप पोस्ट करें"
+  }
   }
   

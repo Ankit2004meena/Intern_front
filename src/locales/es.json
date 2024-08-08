@@ -13,7 +13,14 @@
       "LoginHistory": "Historial de inicio de sesión",
         "background-image1": "linear-gradient(180deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)",
         "background-image2": "linear-gradient(180deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)"
-    },
+    ,"profileDropdown": {
+      "topLocations": "Principales Ubicaciones",
+      "profile": "Perfil",
+      "topCategory": "Categoría Principal",
+      "exploreMoreInternships": "Explora Más Prácticas",
+      "internAtIndia": "Pasantía en India"
+    }
+      },
     "Home": {
     "welcome": "Haz realidad tu carrera soñada",
     "trending": "Tendencias en InternArea 🔥",
@@ -39,6 +46,70 @@
     "data_science": "Ciencia de Datos",
     "background-image1": "linear-gradient(135deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)",
         "background-image2": "linear-gradient(135deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)"
+  },
+  
+    "intern": {
+      "filter": "Filtrar",
+      "profile": "Perfil",
+      "profilePlaceholder": "Gerente de perfil",
+      "location": "Ubicación",
+      "locationPlaceholder": "Mumbai",
+      "workFromHome": "Trabajar desde casa",
+      "partTime": "Medio tiempo",
+      "desiredStipend": "Estipendio mínimo mensual deseado (₹)",
+      "viewMoreFilters": "Ver más filtros",
+      "clearAll": "Borrar todo",
+      "searchPlaceholder": "ej. Diseño Medios MBA",
+      "totalInternships": "pasantías en total",
+      "activelyHiring": "Contratación activa",
+      "startDate": "Fecha de inicio",
+      "duration": "Duración",
+      "stipend": "Estipendio",
+      "internship": "Pasantía",
+      "deadline": "Fecha límite",
+      "viewInDetails": "Ver en detalle",
+      "experience": "Experiencia",
+      "experiencePlaceholder": "ej. 0-1 año"
+    },
+    "job": {
+      "filter": "Filtro",
+      "profile": "Perfil",
+      "profilePlaceholder": "Gerente de perfil",
+      "location": "Ubicación",
+      "locationPlaceholder": "Mumbai",
+      "workFromHome": "Trabajar desde casa",
+      "partTime": "Medio tiempo",
+      "salary": "Salario anual (en lakhs)",
+      "salaryRange": "0  2K  4k  6K  8k  10K",
+      "experience": "Experiencia",
+      "experiencePlaceholder": "p. ej. 0-1 año",
+      "totalJobs": " trabajos en total",
+      "activelyHiring": "Contratación activa",
+      "startDate": "Fecha de inicio",
+      "experienceLabel": "Experiencia",
+      "salaryLabel": "Salario",
+      "job": "Trabajo",
+      "applyBy": "Aplicar antes de",
+      "viewDetails": "Ver detalles",
+      "clearAll": "Borrar todo",
+      "viewMoreFilters": "Ver más filtros"
+    },
+    "adminLogin": {
+    "contactUs": "Contáctanos",
+    "name": "Nombre",
+    "password": "Contraseña",
+    "login": "Iniciar sesión",
+    "fillTheBlanks": "Por favor, complete todos los campos",
+    "success": "Éxito"
   }
+  , "adminpanel": {
+    "viewApplications": "Ver solicitudes",
+    "viewApplicationsDescription": "Vea todas las solicitudes que recibió de los solicitantes",
+    "postJob": "Publicar trabajo",
+    "postJobDescription": "Publique trabajos según sus requisitos",
+    "postInternship": "Publicar pasantías",
+    "postInternshipDescription": "Publique pasantías según sus requisitos"
+  }
+  
   }
   

@@ -134,11 +134,11 @@
       box-shadow: 0px 0px 2px -1px black;
     }
     .info{
-      margin-left: -34rem;
+      margin-left:34rem;
     }
-    .all-ele{
-margin-top: -45px;
-    }
+      .all-ele{
+  margin-top: -45px;
+      }
  
     .show2{
       margin-left: -14rem;

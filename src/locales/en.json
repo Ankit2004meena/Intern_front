@@ -13,7 +13,14 @@
         "LoginHistory": "Login History",
         "background-image1": "linear-gradient(180deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)",
         "background-image2": "linear-gradient(180deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)"
-    },
+        ,"profileDropdown": {
+          "topLocations": "Top Locations",
+          "profile": "Profile",
+          "topCategory": "Top Category",
+          "exploreMoreInternships": "Explore More Internships",
+          "internAtIndia": "Intern at India"
+        }
+      },
     "Home": {
     "welcome": "Make your dream career a reality",
     "trending": "Trending on InternArea 🔥",
@@ -39,5 +46,69 @@
     "data_science": "Data Science",
      "background-image1": "linear-gradient(135deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)",
         "background-image2": "linear-gradient(135deg, rgb(242 241 244 / 48%) 10%, rgb(251, 252, 219) 100%)"
+  },
+
+    "intern": {
+      "filter": "Filter",
+      "profile": "Profile",
+      "profilePlaceholder": "Profile manager",
+      "location": "Location",
+      "locationPlaceholder": "Mumbai",
+      "workFromHome": "Work From Home",
+      "partTime": "Part-time",
+      "desiredStipend": "Desired minimum monthly Stipend (₹)",
+      "viewMoreFilters": "View more filters",
+      "clearAll": "Clear all",
+      "searchPlaceholder": "eg. Design Media MBA",
+      "totalInternships": " total internships",
+      "activelyHiring": "Actively Hiring",
+      "startDate": "Start Date",
+      "duration": "Duration",
+      "stipend": "Stipend",
+      "internship": "Internship",
+      "deadline": "Deadline",
+      "viewInDetails": "View In Details",
+      "experience": "Experience",
+      "experiencePlaceholder": "eg. 0-1 year"
+  
+  },
+  "job": {
+    "filter": "Filter",
+    "profile": "Profile",
+    "profilePlaceholder": "Profile manager",
+    "location": "Location",
+    "locationPlaceholder": "Mumbai",
+    "workFromHome": "Work From Home",
+    "partTime": "Part-time",
+    "salary": "Annual salary (in lakhs)",
+    "salaryRange": "0  2K  4k  6K  8k  10K",
+    "experience": "Experience",
+    "experiencePlaceholder": "e.g. 0-1 year",
+    "totalJobs": " total jobs",
+    "activelyHiring": "Actively Hiring",
+    "startDate": "Start Date",
+    "experienceLabel": "Experience",
+    "salaryLabel": "Salary",
+    "job": "Job",
+    "applyBy": "Apply By",
+    "viewDetails": "View Details",
+    "clearAll": "Clear All",
+    "viewMoreFilters": "View more filters"
+  }
+  ,  "adminLogin": {
+    "contactUs": "Contact Us",
+    "name": "Name",
+    "password": "Password",
+    "login": "Login",
+    "fillTheBlanks": "Please fill in all the fields",
+    "success": "Success"
+  },
+  "adminpanel": {
+    "viewApplications": "View Applications",
+    "viewApplicationsDescription": "View All the Applications That you got from applicants",
+    "postJob": "Post Job",
+    "postJobDescription": "Post Jobs According to Your Requirements",
+    "postInternship": "Post Internships",
+    "postInternshipDescription": "Post Internships According To Your Requirements"
   }
   }

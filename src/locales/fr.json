@@ -13,6 +13,13 @@
         "LoginHistory": "Historique de connexion",
       "background-image1": "linear-gradient(180deg, rgb(234 255 46 / 87%) 39%, rgb(248 255 0) 179%)",
       "background-image2": "linear-gradient(180deg, rgb(255, 168, 168) -28%, rgb(252, 255, 0) 82%)"
+    , "profileDropdown": {
+      "topLocations": "Principales Locations",
+      "profile": "Profil",
+      "topCategory": "Catégorie Principale",
+      "exploreMoreInternships": "Explorer Plus de Stages",
+      "internAtIndia": "Stage en Inde"
+    }
     },
     "Home": {
       "welcome": "Réalisez votre carrière de rêve",
@@ -39,6 +46,70 @@
       "data_science": "Science des Données",
       "background-image1": "linear-gradient(220deg, rgb(234 255 46 / 87%) 39%, rgb(248 255 0) 179%)",
       "background-image2": "linear-gradient(306deg, rgb(255, 168, 168) 2%, rgb(252, 255, 0) 100%)"
-    }
+    },
+    
+      "intern": {
+        "filter": "Filtrer",
+        "profile": "Profil",
+        "profilePlaceholder": "Responsable de profil",
+        "location": "Localisation",
+        "locationPlaceholder": "Mumbai",
+        "workFromHome": "Travail à domicile",
+        "partTime": "Temps partiel",
+        "desiredStipend": "Indemnité mensuelle minimale souhaitée (₹)",
+        "viewMoreFilters": "Voir plus de filtres",
+        "clearAll": "Tout effacer",
+        "searchPlaceholder": "par exemple, Design Media MBA",
+        "totalInternships": " stages au total",
+        "activelyHiring": "Recrutement actif",
+        "startDate": "Date de début",
+        "duration": "Durée",
+        "stipend": "Indemnité",
+        "internship": "Stage",
+        "deadline": "Date limite",
+        "viewInDetails": "Voir en détail",
+        "experience": "Expérience",
+        "experiencePlaceholder": "par exemple, 0-1 an"
+      }
+    ,"job": {
+    "filter": "Filtrer",
+    "profile": "Profil",
+    "profilePlaceholder": "Gestionnaire de profil",
+    "location": "Emplacement",
+    "locationPlaceholder": "Mumbai",
+    "workFromHome": "Travailler à domicile",
+    "partTime": "Temps partiel",
+    "salary": "Salaire annuel (en lakhs)",
+    "salaryRange": "0  2K  4k  6K  8k  10K",
+    "experience": "Expérience",
+    "experiencePlaceholder": "p. ex. 0-1 an",
+    "totalJobs": "{{count}} emplois au total",
+    "activelyHiring": "Recrutement actif",
+    "startDate": "Date de début",
+    "experienceLabel": "Expérience",
+    "salaryLabel": "Salaire",
+    "job": "Emploi",
+    "applyBy": "Postuler avant le",
+    "viewDetails": "Voir les détails",
+    "clearAll": "Tout effacer",
+    "viewMoreFilters": "Voir plus de filtres"
+  },
+  "adminLogin": {
+    "contactUs": "Contactez-nous",
+    "name": "Nom",
+    "password": "Mot de passe",
+    "login": "Connexion",
+    "fillTheBlanks": "Veuillez remplir tous les champs",
+    "success": "Succès"
+  },
+  "adminpanel": {
+    "viewApplications": "Voir les candidatures",
+    "viewApplicationsDescription": "Consultez toutes les candidatures que vous avez reçues des candidats",
+    "postJob": "Publier un emploi",
+    "postJobDescription": "Publiez des emplois selon vos exigences",
+    "postInternship": "Publier des stages",
+    "postInternshipDescription": "Publiez des stages selon vos exigences"
+  }
+    
   }
   

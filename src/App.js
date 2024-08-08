@@ -109,7 +109,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/Internship' />
+          <Route path='/Internship' element={<Intern/>} />
           <Route path='/Jobs' element={<JobAvl />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/detailjob' element={<JobDetail />} />

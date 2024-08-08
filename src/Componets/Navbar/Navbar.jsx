@@ -20,6 +20,7 @@ import "react-phone-input-2/lib/style.css";
 import emailjs from '@emailjs/browser';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useTranslation } from 'react-i18next' ;
+import { trackUserLogin, getDeviceDetails } from '../../utils/trackUserLogin';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -42,16 +43,28 @@ function Navbar() {
   const [generatedeOtp, setGeneratedeotp] = useState('');
   const [iseOtpSent, setIseOtpSent] = useState(false);
   const { t } = useTranslation();
+  const [userId, setUserId] = useState(''); 
   //direct google authentication
+  // const currentUser = auth.currentUser;
+  // const userId = currentUser.uid; // Get the UID of the current user
   const loginFunction = () => {
     signInWithPopup(auth, provider)
       .then((res) => {
-        console.log(res);
+        const currentUser = auth.currentUser; // Get the current user after sign-in
+        if (currentUser) {
+          const userId = currentUser.uid; // Get the UID of the current user
+          setUserId(userId);
+          console.log('UserID:', userId);
+          console.log('Device Details:', getDeviceDetails());
+          // Track user login with the current user's ID and device details
+          trackUserLogin(userId, getDeviceDetails());
+
+          setDivVisible(false); // Update visibility state
+        }
       })
       .catch((err) => {
         console.log(err);
       });
-    setDivVisibleFrologin(false);
   };
 
 
@@ -308,40 +321,39 @@ const sectionStyle2 = {
           )}
         </ul>
       </nav>
-
       {isDivVisibleForintern && (
-        <div className="profile-dropdown-2">
+        <div className="profile-dropdown-2" style={sectionStyle}>
           <div className="left-section">
-            <p>Top Locations</p>
-            <p>Profile</p>
-            <p>Top Category</p>
-            <p>Explore More Internships</p>
+            <p>{t('Navbar.profileDropdown.topLocations')}</p>
+            <p>{t('Navbar.profileDropdown.profile')}</p>
+            <p>{t('Navbar.profileDropdown.topCategory')}</p>
+            <p>{t('Navbar.profileDropdown.exploreMoreInternships')}</p>
           </div>
           <div className="line flex bg-slate-400"></div>
           <div className="right-section">
-            <p>Intern at India</p>
-            <p>Intern at India</p>
-            <p>Intern at India</p>
-            <p>Intern at India</p>
-            <p>Intern at India</p>
+            <p>{t('Navbar.profileDropdown.internAtIndia')}</p>
+            <p>{t('Navbar.profileDropdown.internAtIndia')}</p>
+            <p>{t('Navbar.profileDropdown.internAtIndia')}</p>
+            <p>{t('Navbar.profileDropdown.internAtIndia')}</p>
+            <p>{t('Navbar.profileDropdown.internAtIndia')}</p>
           </div>
         </div>
       )}
       {isDivVisibleForJob && (
-        <div className="profile-dropdown-1">
+        <div className="profile-dropdown-1" style={sectionStyle}>
           <div className="left-section">
-            <p>Top Locations</p>
-            <p>Profile</p>
-            <p>Top Category</p>
-            <p>Explore More Internships</p>
+            <p>{t('Navbar.profileDropdown.topLocations')}</p>
+            <p>{t('Navbar.profileDropdown.profile')}</p>
+            <p>{t('Navbar.profileDropdown.topCategory')}</p>
+            <p>{t('Navbar.profileDropdown.exploreMoreInternships')}</p>
           </div>
           <div className="line flex bg-slate-400"></div>
           <div className="right-section">
-            <p>Intern at India</p>
-            <p>Intern at India</p>
-            <p>Intern at India</p>
-            <p>Intern at India</p>
-            <p>Intern at India</p>
+            <p>{t('Navbar.profileDropdown.internAtIndia')}</p>
+            <p>{t('Navbar.profileDropdown.internAtIndia')}</p>
+            <p>{t('Navbar.profileDropdown.internAtIndia')}</p>
+            <p>{t('Navbar.profileDropdown.internAtIndia')}</p>
+            <p>{t('Navbar.profileDropdown.internAtIndia')}</p>
           </div>
         </div>
       )}

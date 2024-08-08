@@ -120,7 +120,8 @@
            width: 40px;
        }
        .head{
-        margin-left: 23rem;
+        margin-left: auto;
+        text-align: center;
       }
       .filterico{
         margin-left: 45rem;
@@ -147,9 +148,9 @@
     #viewButtons:hover{
       box-shadow: 0px 0px 2px -1px black;
     }
-    .info{
+    /* .info{
       margin-left: -34rem;
-    }
+    } */
     .all-ele{
 margin-top: -45px;
     }

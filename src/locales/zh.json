@@ -13,6 +13,13 @@
         "LoginHistory": "登录历史",
      "background-image1": "linear-gradient(180deg, rgb(57 255 46 / 87%) 39%, rgb(123 231 41) 179%)",
     "background-image2": "linear-gradient(180deg, #9be15d 10%, #00e3ae 100%)"
+    , "profileDropdown": {
+      "topLocations": "热门地点",
+      "profile": "个人资料",
+      "topCategory": "热门分类",
+      "exploreMoreInternships": "探索更多实习",
+      "internAtIndia": "印度实习"
+    }
     },"Home": {
     "welcome": "让你的梦想职业成真",
     "trending": "InternArea 上的热门趋势 🔥",
@@ -38,6 +45,71 @@
     "data_science": "数据科学",
     "background-image1": "linear-gradient(220deg, rgb(57 255 46 / 87%) 39%, rgb(123 231 41) 179%)",
     "background-image2": "linear-gradient(135deg, #9be15d 10%, #00e3ae 100%)"
+  },
+  
+    "intern": {
+      "filter": "筛选",
+      "profile": "个人资料",
+      "profilePlaceholder": "资料经理",
+      "location": "地点",
+      "locationPlaceholder": "孟买",
+      "workFromHome": "在家工作",
+      "partTime": "兼职",
+      "desiredStipend": "期望的最低月薪 (₹)",
+      "viewMoreFilters": "查看更多筛选条件",
+      "clearAll": "清除所有",
+      "searchPlaceholder": "例如 设计 媒体 MBA",
+      "totalInternships": " 个实习职位",
+      "activelyHiring": "正在积极招聘",
+      "startDate": "开始日期",
+      "duration": "期限",
+      "stipend": "津贴",
+      "internship": "实习",
+      "deadline": "截止日期",
+      "viewInDetails": "查看详情",
+      "experience": "经验",
+      "experiencePlaceholder": "例如 0-1 年"
+    },
+    "job": {
+    "filter": "筛选",
+    "profile": "职位",
+    "profilePlaceholder": "职位经理",
+    "location": "地点",
+    "locationPlaceholder": "孟买",
+    "workFromHome": "在家办公",
+    "partTime": "兼职",
+    "salary": "年薪（以万卢比计）",
+    "salaryRange": "0  2K  4k  6K  8k  10K",
+    "experience": "经验",
+    "experiencePlaceholder": "例如 0-1 年",
+    "totalJobs": "{{count}} 个工作岗位",
+    "activelyHiring": "正在积极招聘",
+    "startDate": "开始日期",
+    "experienceLabel": "经验",
+    "salaryLabel": "薪水",
+    "job": "工作",
+    "applyBy": "申请截止",
+    "viewDetails": "查看详情",
+    "clearAll": "清除所有",
+    "viewMoreFilters": "查看更多筛选条件"
+  },
+  "adminLogin": {
+    "contactUs": "联系我们",
+    "name": "姓名",
+    "password": "密码",
+    "login": "登录",
+    "fillTheBlanks": "请填写所有空白字段",
+    "success": "成功"
+  },
+  "adminpanel": {
+    "viewApplications": "查看申请",
+    "viewApplicationsDescription": "查看您从申请人那里获得的所有申请",
+    "postJob": "发布职位",
+    "postJobDescription": "根据您的要求发布职位",
+    "postInternship": "发布实习",
+    "postInternshipDescription": "根据您的要求发布实习"
   }
+  
+  
   }
   
