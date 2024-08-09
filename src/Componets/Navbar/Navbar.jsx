@@ -59,7 +59,7 @@ function Navbar() {
           // Track user login with the current user's ID and device details
           trackUserLogin(userId, getDeviceDetails());
 
-          setDivVisible(false); // Update visibility state
+          setDivVisibleFrologin(false); // Update visibility state
         }
       })
       .catch((err) => {
