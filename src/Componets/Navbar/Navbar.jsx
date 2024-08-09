@@ -394,7 +394,7 @@ const sectionStyle2 = {
             {isStudent ? (
               <>
                 <div className="flex-col bg-white  rounded-lg justify-center overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
-                  {/* {isFrench && (
+                  {isFrench && (
                     <>
                       <div className="flex flex-col items-center w-full">
                         <label className="font-bold text-xl text-gray-800 text-center mb-4">
@@ -435,8 +435,8 @@ const sectionStyle2 = {
                         </div>
                       </div>
                     </>
-                  )} */}
-                  {/* {ShowOTP && (
+                  )}
+                  {ShowOTP && (
                     <>
                       <div className="flex flex-col items-center w-full my-5">
                         <label
@@ -482,7 +482,7 @@ const sectionStyle2 = {
                           </button>
                         </div>
                     </>
-                  )} */}
+                  )}
                 </div>
                 {/* commenting google part */}
                 <div className="py-2">
