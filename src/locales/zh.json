@@ -108,6 +108,21 @@
     "postJobDescription": "根据您的要求发布职位",
     "postInternship": "发布实习",
     "postInternshipDescription": "根据您的要求发布实习"
+  },
+  "sidebar": {
+    "profileName": "个人资料名称",
+    "myApplications": "我的申请",
+    "viewResume": "查看简历",
+    "more": "更多",
+    "logout": "注销",
+    "contactUs": "联系我们",
+    "registerAsStudent": "注册 - 作为学生",
+    "registerAsEmployer": "注册 - 作为雇主",
+    "adminLogin": "管理员登录",
+    "hireTalent": "招聘人才",
+    "searchPlaceholder": "搜索",
+    "internships": "实习",
+    "jobs": "职位"
   }
   
   

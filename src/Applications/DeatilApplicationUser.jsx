@@ -22,27 +22,25 @@ console.log(data)
    {
     data.map((data)=>(
       <section class="text-gray-600 body-font overflow-hidden">
-      <div class="container px-5 py-24 mx-auto">
-        <div class="lg:w-4/5 mx-auto flex flex-wrap">
-          <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover  rounded" src={data.user.photo}/>
-          <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-            <h2 class="text-sm title-font text-gray-500 tracking-widest">Company name</h2>
-            <h1 class="text-gray-900 font-bold title-font mb-1 -mt-8">{data.company}</h1>
-          <h2>Cover Letter</h2>
-            <p class="leading-relaxed font-bold -mt-8">{data.coverLetter}</p>
+      <div class="container px-5 py-24 mx-auto flex content-center  ">
+      <img alt="ecommerce" class="lg:w-1/4 w-full lg:h-auto h-50 object-cover rounded-es-2xl " src={data.user.photo}/>
+          <div class=" lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+              <h2 class="text-sm  text-zinc-1500 tracking-widest -ml-1 m-8 font-bold">Company name</h2>
+            <h1 class="text-gray-700  title-font mb-1 p-1 -mt-8 ">{data.company}</h1>
+          <h2 className="font-bold text-zinc-1500">Cover Letter</h2>
+            <p class="text-gray-700 leading-relaxed font-bold -mt-0 ">{data.coverLetter}</p>
             <div class="flex mt-6  pb-5 border-b-2 border-gray-100 mb-5">
          
-                <span class="mr-3">Application Date</span><br />
-             <p className='font-bold'>{new Date(data?.createAt).toLocaleDateString()}</p>
+                <h1 class="mr-3 font-bold">Application Date</h1>
+             <h1 className=''>{new Date(data?.createAt).toLocaleDateString()}</h1>
            
             </div>
             <h4 className=' mt-9'>Applied By</h4>
-     <p className='font-bold -mt-8'>{data.user.name}</p>
-
+     <p className='font-bold -mt-1'>{data.user.name}</p>
+    
           </div>
       
         </div>
-      </div>
     </section>
     ))
    }

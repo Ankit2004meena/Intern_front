@@ -110,6 +110,21 @@
       "postJobDescription": "Publique vagas conforme seus requisitos",
       "postInternship": "Publicar estágios",
       "postInternshipDescription": "Publique estágios conforme seus requisitos"
-    }
+    },
+    "sidebar": {
+    "profileName": "Nome do Perfil",
+    "myApplications": "Minhas Candidaturas",
+    "viewResume": "Ver Currículo",
+    "more": "Mais",
+    "logout": "Sair",
+    "contactUs": "Contate-Nos",
+    "registerAsStudent": "Registrar - Como Estudante",
+    "registerAsEmployer": "Registrar - Como Empregador",
+    "adminLogin": "Login Admin",
+    "hireTalent": "Contratar Talento",
+    "searchPlaceholder": "Buscar",
+    "internships": "Estágios",
+    "jobs": "Trabalhos"
+  }
   }
   

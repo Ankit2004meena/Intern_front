@@ -109,6 +109,19 @@
     "postJobDescription": "Publiez des emplois selon vos exigences",
     "postInternship": "Publier des stages",
     "postInternshipDescription": "Publiez des stages selon vos exigences"
+  },
+  "sidebar": {
+    "profileName": "Nom du profil",
+    "myApplications": "Mes Candidatures",
+    "viewResume": "Voir le CV",
+    "more": "Plus",
+    "logout": "Déconnexion",
+    "contactUs": "Nous Contacter",
+    "registerAsStudent": "Inscription- En tant qu'Étudiant",
+    "registerAsEmployer": "Inscription- En tant qu'Employeur",
+    "adminLogin": "Connexion Admin",
+    "hireTalent": "Recruter des Talents",
+    "searchPlaceholder": "Recherche"
   }
     
   }

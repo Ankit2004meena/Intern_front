@@ -109,6 +109,21 @@
     "postJobDescription": "Publique trabajos según sus requisitos",
     "postInternship": "Publicar pasantías",
     "postInternshipDescription": "Publique pasantías según sus requisitos"
+  },
+  "sidebar": {
+    "profileName": "Nombre del perfil",
+    "myApplications": "Mis Aplicaciones",
+    "viewResume": "Ver CV",
+    "more": "Más",
+    "logout": "Cerrar sesión",
+    "contactUs": "Contáctanos",
+    "registerAsStudent": "Registro - Como Estudiante",
+    "registerAsEmployer": "Registro - Como Empleador",
+    "adminLogin": "Inicio de sesión Admin",
+    "hireTalent": "Contratar Talento",
+    "searchPlaceholder": "Buscar",
+    "internships": "Pasantías",
+    "jobs": "Trabajos"
   }
   
   }

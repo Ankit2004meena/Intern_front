@@ -110,5 +110,18 @@
     "postJobDescription": "Post Jobs According to Your Requirements",
     "postInternship": "Post Internships",
     "postInternshipDescription": "Post Internships According To Your Requirements"
+  },
+  "sidebar": {
+    "profileName": "Profile name",
+    "myApplications": "My Applications",
+    "viewResume": "View Resume",
+    "more": "More",
+    "logout": "Logout",
+    "contactUs": "Contact Us",
+    "registerAsStudent": "Register- As a Student",
+    "registerAsEmployer": "Register- As an Employer",
+    "adminLogin": "Admin Login",
+    "hireTalent": "Hire Talent",
+    "searchPlaceholder": "Search"
   }
   }

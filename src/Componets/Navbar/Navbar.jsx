@@ -44,6 +44,7 @@ function Navbar() {
   const [iseOtpSent, setIseOtpSent] = useState(false);
   const { t } = useTranslation();
   const [userId, setUserId] = useState(''); 
+  const [pass,setPass]=useState('');
   //direct google authentication
   // const currentUser = auth.currentUser;
   // const userId = currentUser.uid; // Get the UID of the current user
@@ -159,13 +160,17 @@ function Navbar() {
   const handleVerifyOtp = async () => {
     if (eotp === generatedeOtp) {
       try {
-        await signInWithEmailAndPassword(auth, email, 'dummyPassword');
+        await signInWithEmailAndPassword(auth, email,pass);
       } catch (error) {
         if (error.code === 'auth/user-not-found') {
-          await createUserWithEmailAndPassword(auth, email, 'dummyPassword');
+          await createUserWithEmailAndPassword(auth, email,pass);
         }
       }
       alert('OTP verified successfully!');
+      setDivVisibleFrologin(false);
+      setIseOtpSent(false);
+      setEmail('');
+      setPass('');
     } else {
       alert('Invalid OTP. Please try again.');
     }
@@ -271,7 +276,7 @@ const sectionStyle2 = {
               <div className="Profile">
                 <Link to={"/profile"}>
                   <img
-                    src={user?.photo}
+                    src={user.photo}
                     alt=""
                     onMouseEnter={showtheProfile}
                     className="rounded-full w-12"
@@ -389,7 +394,7 @@ const sectionStyle2 = {
             {isStudent ? (
               <>
                 <div className="flex-col bg-white  rounded-lg justify-center overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
-                  {isFrench && (
+                  {/* {isFrench && (
                     <>
                       <div className="flex flex-col items-center w-full">
                         <label className="font-bold text-xl text-gray-800 text-center mb-4">
@@ -430,8 +435,8 @@ const sectionStyle2 = {
                         </div>
                       </div>
                     </>
-                  )}
-                  {ShowOTP && (
+                  )} */}
+                  {/* {ShowOTP && (
                     <>
                       <div className="flex flex-col items-center w-full my-5">
                         <label
@@ -477,7 +482,7 @@ const sectionStyle2 = {
                           </button>
                         </div>
                     </>
-                  )}
+                  )} */}
                 </div>
                 {/* commenting google part */}
                 <div className="py-2">
@@ -505,20 +510,57 @@ const sectionStyle2 = {
 
  </div>
  <div class="mt-4">
-                 <label class="block text-gray-700 text-sm font-bold mb-2">Email </label>
-                 <input class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email"  placeholder='john@example.com'/>
-             </div>
-             <div class="mt-4">
-                 <div class="flex justify-between">
-                     <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                     <a href="/" class="text-xs text-blue-500">Forget Password?</a>
-                 </div>
-                 <input class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"   placeholder='Must be atleast 6 characters'   type="password"/>
-             </div>
-             <div className="mt-8">
-             <button className='btn3  bg-blue-500 h-9 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600 '>Login</button>
-             </div>
-
+                      <label class="block text-gray-700 text-sm font-bold mb-2">
+                        Email{" "}
+                      </label>
+                      <input
+                        class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                        type="email"
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}
+                        placeholder="Hire-me@gmail.com"
+                      />
+                    </div>
+                    <div class="mt-4">
+                      <div class="flex justify-between">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">
+                          Password
+                        </label>
+                      </div>
+                      <input
+                        class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                        placeholder="Must be atleast 6 characters"
+                        type="password"
+                        value={pass}
+                        onChange={(e)=>setPass(e.target.value)}
+                      />
+                    </div>
+                    {/* <div className="mt-8">
+                      <button className="btn3  bg-blue-500 h-9 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600 ">
+                        {t('login')}
+                      </button>
+                    </div> */}
+                <button className="btn3  my-2 bg-blue-500 h-9 text-white font-bold py-2  w-full rounded hover:bg-blue-600"
+                  onClick={handleSendOtp}
+                  disabled={iseOtpSent}
+                >
+                  {iseOtpSent ? "OTP Sent" : "Send OTP"}
+                </button>
+                {iseOtpSent && (
+                  <>
+                    <input
+                      type="text"
+                      value={eotp}
+                      onChange={(e) => seteotp(e.target.value)}
+                      placeholder="Enter OTP"
+                    />
+                    <button className="btn3 my-2 bg-blue-500 h-9 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600"
+                      onClick={handleVerifyOtp}
+                    >
+                      Verify OTP
+                    </button>
+                    </>
+            )}
              <div className="mt-4 flex items-center justify-between">
 <p className='text-sm'>new to internarea? Register(<span className='text-blue-500 cursor-pointer' onClick={closeLogin}>Student</span>/<span className='text-blue-500 cursor-pointer' onClick={closeLogin}>company</span>) </p>
              </div>
@@ -538,7 +580,9 @@ const sectionStyle2 = {
                       <input
                         class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                         type="email"
-                        placeholder="john@example.com"
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}
+                        placeholder="Hire-me@gmail.com"
                       />
                     </div>
                     <div class="mt-4">
@@ -546,22 +590,41 @@ const sectionStyle2 = {
                         <label class="block text-gray-700 text-sm font-bold mb-2">
                           Password
                         </label>
-                        <a href="/" class="text-xs text-blue-500">
-                          Forget Password?
-                        </a>
                       </div>
                       <input
                         class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                         placeholder="Must be atleast 6 characters"
                         type="password"
+                        value={pass}
+                        onChange={(e)=>setPass(e.target.value)}
                       />
                     </div>
-                    <div className="mt-8">
+                    {/* <div className="mt-8">
                       <button className="btn3  bg-blue-500 h-9 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600 ">
                         {t('login')}
                       </button>
-                    </div>
-
+                    </div> */}
+                <button className="btn3  bg-blue-500 h-9 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600"
+                  onClick={handleSendOtp}
+                  disabled={iseOtpSent}
+                >
+                  {iseOtpSent ? "OTP Sent" : "Send OTP"}
+                </button>
+                {iseOtpSent && (
+                  <>
+                    <input
+                      type="text"
+                      value={eotp}
+                      onChange={(e) => seteotp(e.target.value)}
+                      placeholder="Enter OTP"
+                    />
+                    <button className="btn3  bg-blue-500 h-9 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600"
+                      onClick={handleVerifyOtp}
+                    >
+                      Verify OTP
+                    </button>
+                    </>
+            )}
                     <div className="mt-4 flex items-center justify-between">
                       <p className="text-sm">
                         new to internarea? Register(

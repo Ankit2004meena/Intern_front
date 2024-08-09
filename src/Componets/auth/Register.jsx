@@ -1,156 +1,133 @@
-// // PhoneAuth.js
-// import React, { useState } from 'react';
-// import { auth } from '../../firebase/firebase';
-// import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
+import React, { useState, useEffect } from 'react';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, useMediaQuery, useTheme } from '@mui/material';
+import { createUserWithEmailAndPassword, signInWithPopup, updateProfile } from 'firebase/auth';
+import { auth, provider } from '../../firebase/firebase';
+import CryptoJS from 'crypto-js';
+import { useNavigate } from 'react-router-dom';
 
-// const PhoneAuth = () => {
-//   const [phoneNumber, setPhoneNumber] = useState('');
-//   const [verificationCode, setVerificationCode] = useState('');
-//   const [confirmationResult, setConfirmationResult] = useState(null);
-//   const [loading, setLoading] = useState(false);
-
-//   const handleSendCode = async () => {
-//     setLoading(true);
-//     const recaptchaVerifier = new RecaptchaVerifier(auth,'recaptcha-container', {
-//       size: 'invisible',
-//       callback: (response) => {
-//         // reCAPTCHA solved
-//         console.log("solved");
-//       },
-//       'expired-callback': () => {
-//         // Response expired
-//       }
-//     });
-
-//     try {
-//       const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);
-//       setConfirmationResult(confirmationResult);
-//       setLoading(false);
-//     } catch (error) {
-//       console.error('Error during signInWithPhoneNumber:', error);
-//       setLoading(false);
-//     }
-//   };
-
-//   const handleVerifyCode = async () => {
-//     if (confirmationResult) {
-//       try {
-//         await confirmationResult.confirm(verificationCode);
-//         alert('Phone number verified!');
-//       } catch (error) {
-//         console.error('Error while verifying code:', error);
-//       }
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <div id="recaptcha-container"></div>
-//       <input
-//         type="text"
-//         placeholder="Enter phone number"
-//         value={phoneNumber}
-//         onChange={(e) => setPhoneNumber(e.target.value)}
-//       />
-//       <button onClick={handleSendCode} disabled={loading}>
-//         Send Verification Code
-//       </button>
-
-//       <input
-//         type="text"
-//         placeholder="Enter verification code"
-//         value={verificationCode}
-//         onChange={(e) => setVerificationCode(e.target.value)}
-//       />
-//       <button onClick={handleVerifyCode} disabled={loading}>
-//         Verify Code
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default PhoneAuth;
-// src/components/OTPAuth.js
-import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase/firebase';
-const OTPAuth = () => {
+const Register = () => {
+  const Navigate = useNavigate();
   const [email, setEmail] = useState('');
-  const [eotp, seteotp] = useState('');
-  const [generatedeOtp, setGeneratedeotp] = useState('');
-  const [iseOtpSent, setIseOtpSent] = useState(false);
-  const sendOTPEmail = async (email, eotp) => {
-    const serviceID = 'service_gkc14qf';
-    const templateID = 'template_aihm098';
-    
-  
-    const templateParams = {
-      email,
-      eotp,
-    };
-  
-    try {
-      await emailjs.send(serviceID, templateID, templateParams, {
-        publicKey: 'mBkuO9TzFBjPP3IG8',
-      })
-    } catch (error) {
-      console.error('Failed to send OTP email:', error);
-    }
-  };
+  const [password, setPassword] = useState('');
+  const [otp, setOtp] = useState('');
+  const [generatedOtp, setGeneratedOtp] = useState('');
+  const [isOtpSent, setIsOtpSent] = useState(false);
+  const [photoUrl, setPhotoUrl] = useState('');
+  const [dialogOpen, setDialogOpen] = useState(true); // Dialog open state
+
+  // For responsive design
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   const generateOtp = () => {
     return Math.floor(100000 + Math.random() * 900000).toString(); // 6-digit OTP
   };
 
   const handleSendOtp = async () => {
-    const eotp = generateOtp();
-    setGeneratedeotp(eotp);
-    await sendOTPEmail(email, eotp);
-    setIseOtpSent(true);
+    const otp = generateOtp();
+    setGeneratedOtp(otp);
+    // Assume sendOTPEmail function is implemented here
+    setIsOtpSent(true);
   };
 
-  const handleVerifyOtp = async () => {
-    if (eotp === generatedeOtp) {
+  const generateAvatarUrl = () => {
+    const emailHash = CryptoJS.MD5(email.trim().toLowerCase()).toString();
+    return `https://www.gravatar.com/avatar/${emailHash}?d=identicon`;
+  };
+
+  const handleRegister = async () => {
+    if (otp === generatedOtp) {
       try {
-        await signInWithEmailAndPassword(auth, email, 'dummyPassword');
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const currentUser = userCredential.user;
+        if (currentUser) {
+          const userId = currentUser.uid;
+          const avatarUrl = generateAvatarUrl(); // Generate avatar URL using the email state
+          setPhotoUrl(avatarUrl);
+          await updateProfile(currentUser, { photoURL: avatarUrl });
+          alert('Registration successful!');
+          setDialogOpen(false); // Close the dialog
+        }
       } catch (error) {
-        if (error.code === 'auth/user-not-found') {
-          await createUserWithEmailAndPassword(auth, email, 'dummyPassword');
+        console.error('Registration error:', error);
+        if (error.code === 'auth/email-already-in-use') {
+          alert('User already registered. Please log in.');
+          Navigate('/');
         }
       }
-      alert('OTP verified successfully!');
     } else {
       alert('Invalid OTP. Please try again.');
     }
   };
 
+  const handleGoogleSignUp = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      if (user) {
+        const userId = user.uid;
+        const avatarUrl = user.photoURL || generateAvatarUrl();
+        setPhotoUrl(avatarUrl);
+        await updateProfile(user, { photo: avatarUrl });
+        alert('Google Sign-Up successful!');
+        setDialogOpen(false); // Close the dialog
+        Navigate('/');
+      }
+    } catch (error) {
+      console.error('Google Sign-Up error:', error);
+    }
+  };
+
   return (
-    <div>
-      {!iseOtpSent ? (
-        <div>
-          <h2>Send OTP</h2>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button onClick={handleSendOtp}>Send OTP</button>
-        </div>
-      ) : (
-        <div>
-          <h2>Verify OTP</h2>
-          <input
+    <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
+      <DialogTitle>Register</DialogTitle>
+      <DialogContent>
+        <TextField
+          autoFocus
+          margin="dense"
+          label="Email Address"
+          type="email"
+          fullWidth
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <TextField
+          margin="dense"
+          label="Password"
+          type="password"
+          fullWidth
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button onClick={handleSendOtp} color="primary" variant="contained">
+          Send OTP
+        </Button>
+        {isOtpSent && (
+          <TextField
+            margin="dense"
+            label="Enter OTP"
             type="text"
-            placeholder="Enter OTP"
-            value={eotp}
-            onChange={(e) => seteotp(e.target.value)}
+            fullWidth
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
           />
-          <button onClick={handleVerifyOtp}>Verify OTP</button>
-        </div>
-      )}
-    </div>
+        )}
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={() => setDialogOpen(false)} color="primary">
+          Cancel
+        </Button>
+        <Button onClick={handleRegister} color="primary" variant="contained">
+          Register
+        </Button>
+        {!isMobile && (
+          <Button onClick={handleGoogleSignUp} color="secondary" variant="contained">
+            Sign Up with Google
+          </Button>
+        )}
+      </DialogActions>
+    </Dialog>
   );
 };
 
-export default OTPAuth;
+export default Register;

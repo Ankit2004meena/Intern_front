@@ -108,6 +108,20 @@
     "postJobDescription": "अपनी आवश्यकताओं के अनुसार नौकरियाँ पोस्ट करें",
     "postInternship": "इंटर्नशिप पोस्ट करें",
     "postInternshipDescription": "अपनी आवश्यकताओं के अनुसार इंटर्नशिप पोस्ट करें"
+  },
+  "sidebar": {
+    "profileName": "प्रोफ़ाइल नाम",
+    "internships": "इंटर्नशिप",
+    "jobs": "नौकरियां",
+    "contactUs": "संपर्क करें",
+    "myApplications": "मेरी आवेदन पत्र",
+    "viewResume": "रिज़्यूमे देखें",
+    "more": "अधिक",
+    "logout": "लॉग आउट",
+    "registerStudent": "छात्र के रूप में पंजीकरण",
+    "registerEmployer": "नियोक्ता के रूप में पंजीकरण",
+    "adminLogin": "व्यवस्थापक लॉगिन",
+    "hireTalent": "प्रतिभा की भर्ती"
   }
   }
   
