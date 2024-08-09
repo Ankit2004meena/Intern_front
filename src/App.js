@@ -59,7 +59,7 @@ function App() {
 {
         const { browser, deviceType } = getDeviceDetails();
         const currentHour = new Date().getHours();
-        const isWithinAllowedTime = currentHour >= 0 && currentHour < 24;
+        const isWithinAllowedTime = currentHour >= 10 && currentHour < 14;
        
         if (deviceType === 'Mobile') {
 
