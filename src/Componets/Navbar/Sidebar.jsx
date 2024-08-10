@@ -53,7 +53,7 @@ function Sidebar() {
                 <Link to={"/profile"}>
                   <img className='rounded-full justify-center' src={user.photo} alt="" />
                 </Link>
-                <p className='text-center'>{user.name} <span className='font-bold text-blue-500'>{user?.name}</span></p>
+                <p className='text-center'>{t('sidebar.profileName')} <span className='font-bold text-blue-500'>{user?.name}</span></p>
               </div>
             </>
           ) : (
@@ -112,7 +112,7 @@ function Sidebar() {
           <>
             <div className="reg">
               <Link to="/register">
-                <button className='btn4'>{t('sidebar.register')}</button>
+                <button className='btn4'>{t('sidebar.signup')}</button>
               </Link>
             </div>
             <div className="admin">

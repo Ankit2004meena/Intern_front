@@ -121,7 +121,8 @@
     "registerAsEmployer": "Inscription- En tant qu'Employeur",
     "adminLogin": "Connexion Admin",
     "hireTalent": "Recruter des Talents",
-    "searchPlaceholder": "Recherche"
+    "searchPlaceholder": "Recherche",
+    "signup": "S'inscrire"
   }
     
   }
