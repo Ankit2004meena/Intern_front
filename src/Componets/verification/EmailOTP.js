@@ -113,6 +113,7 @@ const EmailOTP = ({ open, onClose, onVerify, language }) => {
           fullWidth
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
       
         <TextField
@@ -123,6 +124,7 @@ const EmailOTP = ({ open, onClose, onVerify, language }) => {
           fullWidth
           value={ps}
           onChange={(e) => setps(e.target.value)}
+          required
         />
         <Button onClick={handleSendOtp} color="primary" variant="contained">
           Send OTP
