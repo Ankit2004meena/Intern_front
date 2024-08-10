@@ -51,7 +51,7 @@ function Sidebar() {
             <>
               <div className="profile">
                 <Link to={"/profile"}>
-                  <img className='rounded-full justify-center' src={user.photo} alt="" />
+                  <img className='rounded-full justify-center' src={user.photoURL} alt="" />
                 </Link>
                 <p className='text-center'>{t('sidebar.profileName')} <span className='font-bold text-blue-500'>{user?.name}</span></p>
               </div>
