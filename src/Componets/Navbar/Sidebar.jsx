@@ -79,16 +79,17 @@ function Sidebar() {
                   {t('sidebar.logout')} <i className="bi bi-box-arrow-right"></i>
                 </button>
                 <br />
-                <br />
+                {/* <br />
                 <button onClick={logoutFunction}>
                   {t('sidebar.logout')} <i className="bi bi-box-arrow-right"></i>
-                </button>
+                </button> */}
               </div>
             </>
           ) : (
             <div className="addmore">
-              <p>{t('sidebar.registerAsStudent')}</p>
-              <p>{t('sidebar.registerAsEmployer')}</p>
+              {/* <p>{t('sidebar.registerAsStudent')}</p>
+              <p>{t('sidebar.registerAsEmployer')}</p> */}
+              <p>Welcome To InternArea</p>
               <br />
               <br />
             </div>
