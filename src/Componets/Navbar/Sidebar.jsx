@@ -53,14 +53,14 @@ function Sidebar() {
                 <Link to={"/profile"}>
                   <img className='rounded-full justify-center' src={user.photo} alt="" />
                 </Link>
-                <p className='text-center'>{t('sidebar.profileName')} <span className='font-bold text-blue-500'>{user?.name}</span></p>
+                <p className='text-center'>{user.name} <span className='font-bold text-blue-500'>{user?.name}</span></p>
               </div>
             </>
           ) : (
             <div className="auth"></div>
           )}
-          <Link to="/internship">{t('sidebar.internships')}</Link>
-          <Link to="/Jobs">{t('sidebar.jobs')}</Link>
+          <Link to="/internship">Internship</Link>
+          <Link to="/Jobs">Jobs</Link>
           <Link to={"/"} className='small'>{t('sidebar.contactUs')}</Link>
           <hr />
           {user ? (
