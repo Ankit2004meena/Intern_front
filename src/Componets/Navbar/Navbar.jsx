@@ -120,6 +120,8 @@ function Navbar() {
           setloading1(false);
           setDivVisibleFrologin(false)
           alert("Login 🤗 Success")
+          setShowOTP(false);
+          setPh('');
         })
         .catch((error) => {
           // User couldn't sign in (bad verification code?)
@@ -161,9 +163,31 @@ function Navbar() {
     if (eotp === generatedeOtp) {
       try {
         await signInWithEmailAndPassword(auth, email,pass);
+        const currentUser = auth.currentUser; // Get the current user after sign-in
+        if (currentUser) {
+          const userId = currentUser.uid; // Get the UID of the current user
+          setUserId(userId);
+          console.log('UserID:', userId);
+          console.log('Device Details:', getDeviceDetails());
+          // Track user login with the current user's ID and device details
+          trackUserLogin(userId, getDeviceDetails());
+
+          setDivVisibleFrologin(false); // Update visibility state
+        }
       } catch (error) {
         if (error.code === 'auth/user-not-found') {
           await createUserWithEmailAndPassword(auth, email,pass);
+          const currentUser = auth.currentUser; // Get the current user after sign-in
+          if (currentUser) {
+            const userId = currentUser.uid; // Get the UID of the current user
+            setUserId(userId);
+            console.log('UserID:', userId);
+            console.log('Device Details:', getDeviceDetails());
+            // Track user login with the current user's ID and device details
+            trackUserLogin(userId, getDeviceDetails());
+  
+            setDivVisibleFrologin(false); // Update visibility state
+          }
         }
       }
       alert('OTP verified successfully!');
