@@ -195,7 +195,7 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
         )}
 
         {/* Hidden recaptcha container */}
-        <div id="recaptcha-container"></div>
+        {/* <div id="recaptcha-container"></div> */}
       </div>
     </Dialog>
   );
