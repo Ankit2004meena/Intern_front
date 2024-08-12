@@ -47,7 +47,7 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
     //   return;
     // }
 
-    window.recaptchaVerifier = new RecaptchaVerifier(auth,recaptcha-container, {
+    window.recaptchaVerifier = new RecaptchaVerifier(auth,"recaptcha-container", {
       size:'invisible',
       callback: (response) => {
         console.log('reCAPTCHA solved');
