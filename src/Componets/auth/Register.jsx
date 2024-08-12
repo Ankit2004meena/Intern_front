@@ -76,7 +76,7 @@ const Register = () => {
         // Track user login with the current user's ID and device details
         trackUserLogin(userId, getDeviceDetails());
         setDialogOpen(false);
-        setDivVisibleFrologin(false); // Update visibility state
+        // setDivVisibleFrologin(false); // Update visibility state
       }
     })
     .catch((err) => {
