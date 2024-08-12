@@ -41,13 +41,13 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
       window.recaptchaVerifier = null;
     }
 
-    // const container = document.getElementById('recaptcha-container');
-    // if (!container) {
-    //   console.error('Recaptcha container not found');
-    //   return;
-    // }
+    const container = document.getElementById('recaptcha-container1');
+    if (!container) {
+      console.error('Recaptcha container not found');
+      return;
+    }
 
-    window.recaptchaVerifier = new RecaptchaVerifier(auth,"recaptcha-container", {
+    window.recaptchaVerifier = new RecaptchaVerifier(auth,container, {
       size:'invisible',
       callback: (response) => {
         console.log('reCAPTCHA solved');
@@ -195,7 +195,7 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
         )}
 
         {/* Hidden recaptcha container */}
-        {/* <div id="recaptcha-container"></div> */}
+        <div id="recaptcha-container1"></div>
       </div>
     </Dialog>
   );
