@@ -42,13 +42,13 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
     }
 
     const container = document.getElementById('recaptcha-container');
-    if (!container) {
-      console.error('Recaptcha container not found');
-      return;
-    }
+    // if (!container) {
+    //   console.error('Recaptcha container not found');
+    //   return;
+    // }
 
     window.recaptchaVerifier = new RecaptchaVerifier(auth, container, {
-      size: 'invisible',
+      size:'invisible',
       callback: (response) => {
         console.log('reCAPTCHA solved');
       },
