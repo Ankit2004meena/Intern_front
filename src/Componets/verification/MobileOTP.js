@@ -15,7 +15,7 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
   const [showOTP, setShowOTP] = useState(false);
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [otp, setOtp] = useState("");
-
+  
   const onVerifyRef = useRef(onVerify);
 
   useEffect(() => {
@@ -36,7 +36,6 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
   }, [showOTP]);
 
   const setupRecaptcha = () => {
-    console.log("Setting up reCAPTCHA");
     if (window.recaptchaVerifier) {
       window.recaptchaVerifier.clear();
       window.recaptchaVerifier = null;
@@ -64,12 +63,6 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
     setShowOTP(true);
 
     const appVerifier = window.recaptchaVerifier;
-    if (!appVerifier) {
-      console.error("Recaptcha verifier not initialized");
-      setLoading(false);
-      return;
-    }
-
     const phone = "+" + ph;
 
     signInWithPhoneNumber(auth, phone, appVerifier)
@@ -89,7 +82,6 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
     setLoading1(true);
     try {
       if (confirmationResult) {
-        console.log("Verifying code");
         const result = await confirmationResult.confirm(otp);
         alert("Login 🤗 Success");
 
@@ -105,11 +97,7 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
           setPh('');
           resetRecaptcha();
           window.location.reload();
-        } else {
-          console.error("No current user found");
         }
-      } else {
-        console.error("No confirmation result available");
       }
     } catch (error) {
       console.error("Error verifying code", error);
