@@ -59,14 +59,14 @@ function App() {
 {
         const { browser, deviceType } = getDeviceDetails();
         const currentHour = new Date().getHours();
-        const isWithinAllowedTime = currentHour >= 10 && currentHour < 14;
+        const isWithinAllowedTime = currentHour >= 0 && currentHour <=24;
        
         if (deviceType === 'Mobile') {
 
           if (isWithinAllowedTime) {
         
-            setShowOTPDialog(true);
-            // setAuthState({ authenticated: true });
+            // setShowOTPDialog(true);
+            setAuthState({ authenticated: true });
           } else {
             alert('Mobile access is only allowed between 10 AM and 1 PM.');
             // Optionally, you can redirect or block access
