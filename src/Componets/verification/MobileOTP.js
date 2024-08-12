@@ -10,12 +10,12 @@ import { trackUserLogin } from '../../utils/trackUserLogin';
 const MobileOTP = ({ open, onClose, onVerify, language }) => {
   const [loading, setLoading] = useState(false);
   const [loading1, setLoading1] = useState(false);
-  const [userId, setUserId] = useState(''); 
+  const [userId, setUserId] = useState('');
   const [ph, setPh] = useState("");
   const [showOTP, setShowOTP] = useState(false);
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [otp, setOtp] = useState("");
-  
+
   const onVerifyRef = useRef(onVerify);
 
   useEffect(() => {
@@ -31,31 +31,32 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
 
   useEffect(() => {
     if (showOTP) {
-      // Setup recaptcha after OTP is displayed
       setupRecaptcha();
     }
   }, [showOTP]);
 
   const setupRecaptcha = () => {
+    console.log("Setting up reCAPTCHA");
     if (window.recaptchaVerifier) {
-      // Clear the existing reCAPTCHA if any
       window.recaptchaVerifier.clear();
       window.recaptchaVerifier = null;
     }
 
-    // Re-initialize reCAPTCHA
-    window.recaptchaVerifier = new RecaptchaVerifier(auth,
-      'recaptcha-container',
-      {
-        size: 'invisible',
-        callback: (response) => {
-          console.log('reCAPTCHA solved');
-        },
-        'expired-callback': () => {
-          console.log('reCAPTCHA expired');
-        },
-      }
-    );
+    const container = document.getElementById('recaptcha-container');
+    if (!container) {
+      console.error('Recaptcha container not found');
+      return;
+    }
+
+    window.recaptchaVerifier = new RecaptchaVerifier(auth, container, {
+      size: 'invisible',
+      callback: (response) => {
+        console.log('reCAPTCHA solved');
+      },
+      'expired-callback': () => {
+        console.log('reCAPTCHA expired');
+      },
+    });
   };
 
   const onSignup = () => {
@@ -63,6 +64,12 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
     setShowOTP(true);
 
     const appVerifier = window.recaptchaVerifier;
+    if (!appVerifier) {
+      console.error("Recaptcha verifier not initialized");
+      setLoading(false);
+      return;
+    }
+
     const phone = "+" + ph;
 
     signInWithPhoneNumber(auth, phone, appVerifier)
@@ -82,9 +89,8 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
     setLoading1(true);
     try {
       if (confirmationResult) {
+        console.log("Verifying code");
         const result = await confirmationResult.confirm(otp);
-        const user = result.user;
-        console.log("User signed in", user);
         alert("Login 🤗 Success");
 
         const currentUser = auth.currentUser;
@@ -97,9 +103,13 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
           onVerify(language);
           setShowOTP(false);
           setPh('');
-          resetRecaptcha(); // Clear reCAPTCHA after successful verification
-          window.location.reload(); // Refresh the page
+          resetRecaptcha();
+          window.location.reload();
+        } else {
+          console.error("No current user found");
         }
+      } else {
+        console.error("No confirmation result available");
       }
     } catch (error) {
       console.error("Error verifying code", error);
@@ -195,6 +205,9 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
             </div>
           </>
         )}
+
+        {/* Hidden recaptcha container */}
+        <div id="recaptcha-container"></div>
       </div>
     </Dialog>
   );
