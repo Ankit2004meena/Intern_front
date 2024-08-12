@@ -11,20 +11,20 @@ function Profile() {
         <div className='max-w-xs'>
             <div className='bg-white shadow-lg rounded-lg py-3'>
    <div className="photo-wrapper p-2">
-<img src={user.photo} alt="" className='w-32 h-32 rounded-full mx-auto' />
+<img src={user?.photo} alt="" className='w-32 h-32 rounded-full mx-auto' />
    </div>
 <div className='p-2'>
 
-    <h3 className='text-center text-xl text-gray-900'>{user.name}</h3>
+    <h3 className='text-center text-xl text-gray-900'>{user?.name}</h3>
 </div>
 <div className='text-xs my-3'>
 <h3 className='text-xl font-bold'>UID</h3>
-    <h3 className='text-center text-lg text-gray-900'>{user.uid}</h3>
+    <h3 className='text-center text-lg text-gray-900'>{user?.uid}</h3>
 </div>
 <div>
 
 <h3  className='text-xl font-bold'>Email</h3>
-    <h3 className='text-center text-xl text-gray-900'>{user.email}</h3>
+    <h3 className='text-center text-xl text-gray-900'>{user?.email}</h3>
 </div>
 <div className='flex justify-center mt-3' >
 
