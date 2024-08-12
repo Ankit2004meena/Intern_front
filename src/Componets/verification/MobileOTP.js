@@ -16,11 +16,9 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [otp, setOtp] = useState("");
   
-  // useRef to store the onVerify function to prevent unnecessary re-renders
   const onVerifyRef = useRef(onVerify);
 
   useEffect(() => {
-    // Retrieve language and userId from localStorage after refresh
     const storedUserId = localStorage.getItem('userId');
     const storedLanguage = localStorage.getItem('language');
     
@@ -33,47 +31,50 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
 
   useEffect(() => {
     if (showOTP) {
-      // Ensure the element is rendered before setting up reCAPTCHA
-      setTimeout(() => setupRecaptcha(), 500);
+      // Setup recaptcha after OTP is displayed
+      setupRecaptcha();
     }
   }, [showOTP]);
 
   const setupRecaptcha = () => {
-    if (!window.recaptchaVerifier) {
-      window.recaptchaVerifier = new RecaptchaVerifier(
-        auth,
-        "recaptcha-container",
-        {
-          size: "invisible",
-          callback: (response) => {
-            console.log("reCAPTCHA solved");
-          },
-          "expired-callback": () => {
-            console.log("reCAPTCHA expired");
-          },
-        }
-      );
+    if (window.recaptchaVerifier) {
+      // Clear the existing reCAPTCHA if any
+      window.recaptchaVerifier.clear();
+      window.recaptchaVerifier = null;
     }
+
+    // Re-initialize reCAPTCHA
+    window.recaptchaVerifier = new RecaptchaVerifier(auth,
+      'recaptcha-container',
+      {
+        size: 'invisible',
+        callback: (response) => {
+          console.log('reCAPTCHA solved');
+        },
+        'expired-callback': () => {
+          console.log('reCAPTCHA expired');
+        },
+      }
+    );
   };
 
   const onSignup = () => {
     setLoading(true);
     setShowOTP(true);
-    setupRecaptcha();
 
     const appVerifier = window.recaptchaVerifier;
     const phone = "+" + ph;
-    
+
     signInWithPhoneNumber(auth, phone, appVerifier)
       .then((confirmationResult) => {
         setConfirmationResult(confirmationResult);
         console.log("SMS sent");
         setLoading(false);
         alert("Sent OTP to You😃");
-        appVerifier.clear();
       })
       .catch((error) => {
         console.error("Error during sign-in", error);
+        setLoading(false);
       });
   };
 
@@ -102,7 +103,7 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
       }
     } catch (error) {
       console.error("Error verifying code", error);
-      // alert("Error verifying code. Please try again.");
+      alert("Error verifying code. Please try again.");
     } finally {
       setLoading1(false);
     }
