@@ -6,3 +6,13 @@ text-align: center;
 p{
     text-align: center;
 }
+/* Adjust styles for mobile devices */
+@media (max-width: 600px) {
+    .google-sign-in-button {
+      width: 100%; /* Full-width button on mobile */
+      padding: 12px; /* Adjust padding for better touch targets */
+      font-size: 16px; /* Adjust font size for readability */
+      margin: 10px 0; /* Add spacing between buttons or other elements */
+    }
+  }
+  
