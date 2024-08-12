@@ -46,16 +46,21 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
       console.error('Recaptcha container not found');
       return;
     }
-
-    window.recaptchaVerifier = new RecaptchaVerifier(auth,container, {
-      size:'invisible',
-      callback: (response) => {
-        console.log('reCAPTCHA solved');
-      },
-      'expired-callback': () => {
-        console.log('reCAPTCHA expired');
-      },
-    });
+    window.recaptchaVerifier = new RecaptchaVerifier(
+      auth,
+      "recaptcha-container",
+      {
+        size: "invisible",
+        callback: (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          console.log("reCAPTCHA solved");
+        },
+        "expired-callback": () => {
+          // Response expired. Ask user to solve reCAPTCHA again.
+          console.log("reCAPTCHA expired");
+        },
+      }
+    );
   };
 
   const onSignup = () => {
