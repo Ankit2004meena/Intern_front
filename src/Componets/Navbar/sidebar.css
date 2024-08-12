@@ -131,7 +131,7 @@ border-radius: 2px;
 @media screen and (max-width: 768px) {
   .search2{
     position: relative;
-    left: 62%;
+    left: 55%;
     top: -6.9rem;
 
   }
@@ -148,9 +148,9 @@ border-radius: 2px;
   }
   .btn4{
     top: -9.2rem;
-    width: 50px;
+    width: auto;
     font-size: 13px;
-    left: 82%;
+    left: 76%;
   }
   .hire2{
     position: relative;
