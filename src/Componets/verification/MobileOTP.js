@@ -37,7 +37,7 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
 
   const setupRecaptcha = () => {
     if (!window.recaptchaVerifier) {
-      window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
+      window.recaptchaVerifier = new RecaptchaVerifier(auth,'recaptcha-container', {
         size: 'invisible',
         callback: (response) => {
           console.log('reCAPTCHA solved');
@@ -46,7 +46,7 @@ const MobileOTP = ({ open, onClose, onVerify, language }) => {
           console.log('reCAPTCHA expired');
           resetRecaptcha();
         },
-      }, auth);
+      });
     }
   };
 
