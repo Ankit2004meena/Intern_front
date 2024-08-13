@@ -79,6 +79,7 @@ function Register() {
           // Track user login with the current user's ID and device details
           trackUserLogin(userId, getDeviceDetails())
           setDivVisible(false) // Update visibility state
+          navigate('/');
         }
       } catch (error) {
         if (error.code === 'auth/user-not-found') {
