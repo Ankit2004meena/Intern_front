@@ -1,5 +1,5 @@
 import React, { useState ,useEffect} from 'react'
-import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
+import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword ,updateProfile} from 'firebase/auth'
 import { auth, provider } from "../../firebase/firebase"
 import { useNavigate } from 'react-router-dom'
 import emailjs from 'emailjs-com' // Ensure you have this installed and imported correctly
