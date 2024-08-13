@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth, provider } from "../../firebase/firebase"
 import { useNavigate } from 'react-router-dom'
@@ -17,7 +17,7 @@ function Register() {
   const [eotp, seteotp] = useState('');
   const [generatedeOtp, setGeneratedeOtp] = useState('')
   const [isOtpSent, setIseOtpSent] = useState(false)
-  
+  const [photoUrl, setPhotoUrl] = useState('');
   const navigate = useNavigate()
   const handleSingin = () => {
     signInWithPopup(auth, provider).then((res) => {
@@ -64,9 +64,10 @@ function Register() {
     setGeneratedeOtp(eotp)
     await sendOTPEmail(email, eotp)
     setIseOtpSent(true)
+    alert('otp send');
   }
 
-  const handleVerifyOtp = async () => {
+  const handleVerifyOtp1 = async () => {
     if (eotp === generatedeOtp) {
       try {
         await signInWithEmailAndPassword(auth, email, password)
@@ -104,6 +105,73 @@ function Register() {
       navigate('/');
     } else {
       alert('Invalid OTP. Please try again.')
+    }
+  }
+  useEffect(() => {
+    const updateProfilePhoto = async () => {
+      if (photoUrl) {
+        const currentUser = auth.currentUser;
+        if (currentUser) {
+          try {
+            await updateProfile(currentUser, { photoURL: photoUrl });
+            console.log('Profile photo updated successfully.');
+          } catch (error) {
+            console.error('Error updating profile photo:', error);
+          }
+        }
+      }
+    };
+
+    updateProfilePhoto();
+  }, [photoUrl]);
+  const handleVerifyOtp = async () => {
+    if (eotp === generatedeOtp) {
+      try {
+    
+        await signInWithEmailAndPassword(auth, email,password);
+        setDivVisible(false) 
+      } catch (error) {
+        if (error.code === 'auth/user-not-found') {
+          await createUserWithEmailAndPassword(auth, email,password);
+          setDivVisible(false) 
+        }
+      }
+     // Get the current user ID
+     const currentUser = auth.currentUser;
+     if (currentUser) {
+       const userId = currentUser.uid; // Get the UID of the current user
+       setUserId(userId);
+       console.log('UserID:', userId);
+       console.log('Device Details:', getDeviceDetails());
+       
+       // Track user login with the current user's ID and device details
+       //    // Extract the first character of the email
+         
+           try {
+            const firstChar = email.charAt(0).toUpperCase();
+         
+            //    // Generate the image URL based on the first character
+            const imageUrl = `https://via.placeholder.com/150/000000/FFFFFF?text=${firstChar}`;
+                console.log(imageUrl);
+            setPhotoUrl(imageUrl); // Update the state to force UI re-render
+            console.log('Profile updated successfully');
+          } catch (error) {
+            console.error('Error updating profile:', error);
+          }
+    trackUserLogin(userId,getDeviceDetails);
+       alert('OTP verified successfully!');
+       setPassword('');
+       setEmail('');
+       setDivVisible(false)
+      setIseOtpSent(false)
+      setEmail('')
+      setPassword('')
+      navigate('/');
+      //  onVerify(language);
+      //  onClose();
+     } 
+    } else {
+      alert('Invalid OTP. Please try again.');
     }
   }
 
