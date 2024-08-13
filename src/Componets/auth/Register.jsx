@@ -100,6 +100,7 @@ function Register() {
       setIseOtpSent(false)
       setEmail('')
       setPassword('')
+      navigate('/');
     } else {
       alert('Invalid OTP. Please try again.')
     }
