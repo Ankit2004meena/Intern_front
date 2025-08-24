@@ -40,6 +40,11 @@ console.log(application)
         <th scope='col' className='px-5 py-4'>Applied By</th>
         <th scope='col' className='px-5 py-4'>View Detail</th>
         <th scope='col' className='px-5 py-4'>Application Status</th>
+        <th scope='col' className='px-5 py-4'>Time</th>
+        <th scope='col' className='px-5 py-4'>Date</th>
+        <th scope='col' className='px-5 py-4'>Room No.</th>
+        <th scope='col' className='px-5 py-4'>Link</th>
+
 
     </tr>
 
@@ -56,6 +61,10 @@ console.log(application)
             <td className='whitespace-nowrap px-6 py-4'>{data.user.name}</td>
             <td className='whitespace-nowrap px-6 py-4'><Link to={`/detailApplication?a=${data._id}`}><i class="bi bi-envelope-open text-blue-500"></i></Link></td>
             <td className='whitespace-nowrap px-6 py-4'>{data.status}</td>
+            <td className='whitespace-nowrap px-6 py-4'>{data.time || 'N/A'}</td>
+            <td className='whitespace-nowrap px-6 py-4'>{data.date || 'N/A'}</td>
+            <td className='whitespace-nowrap px-6 py-4'>{data.room || 'N/A'}</td>
+            <td className='whitespace-nowrap px-6 py-4'>{data.link ? <a href={data.link} target="_blank" rel="noopener noreferrer">Join Meeting</a> : 'N/A'}</td>
             </tr>
             </>
         ))
@@ -89,7 +98,7 @@ console.log(application)
              <p class="leading-relaxed text-base"> Applied by  {data.user.name}</p>
              <p class="leading-relaxed text-base"> Applied on  {new Date(data?.createAt).toLocaleDateString()}</p>
              <p class="leading-relaxed text-base"> Application status  {data.status}</p>
-             <Link to={`/detailApplication?a=${data._id}`} class="mt-3 text-indigo-500 inline-flex items-center">View in deatil
+             <Link to={`/detailApplication?a=${data._id}`} class="mt-3 text-indigo-500 inline-flex items-center"> 
              <i class="bi bi-chevron-compact-right text-blue-500" ></i>              
              </Link>
            </div>

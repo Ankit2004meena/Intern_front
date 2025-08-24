@@ -75,12 +75,12 @@ function App() {
         }
         else {
        
-        if (browser === 'Chrome') {
+        // if (browser === 'Chrome') {
          
-          setShowOTPDialog(true);
-        } else {
+        //   setShowOTPDialog(true);
+        // } else {
           setAuthState({ authenticated: true });
-        }
+        // }
       }}
     };
 
