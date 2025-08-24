@@ -20,33 +20,44 @@ function DeatilApplication() {
   }, [id]);
 
   const handleAcceptAndReject = async (id, action) => {
-    try {
-      const payload = { action };
-      if (action === "interview") {
-        payload.date = formData.date;
-        payload.time = formData.time;
-        payload.room = formData.room;
-        payload.link = formData.link;
-      }
+  try {
+    const payload = { action };
 
-       const response=await axios.get(`https://intern-backend-kneh.onrender.com/api/application/${id}`)
-      const updatedApplications = data.map(app =>
-        app._id === id ? response.data.data : app
-      );
-      setData(updatedApplications);
-
-      if (action === "accepted") {
-        alert("Application accepted");
-      } else if (action === "interview") {
-        alert("Interview scheduled");
-      } else {
-        alert("Application rejected");
-      }
-      Navigate('/applications');
-    } catch (error) {
-      console.error(error);
+    if (action === "interview") {
+      payload.date = formData.date;
+      payload.time = formData.time;
+      payload.room = formData.room;
+      payload.link = formData.link;
     }
-  };
+
+    // ✅ Send payload with PUT request
+    const response = await axios.put(
+      `https://intern-backend-kneh.onrender.com/api/application/${id}`,
+      payload
+    );
+
+    // ✅ Update applications state
+    const updatedApplications = data.map(app =>
+      app._id === id ? response.data.data : app
+    );
+    setData(updatedApplications);
+
+    // ✅ Show alerts based on action
+    if (action === "accepted") {
+      alert("Application accepted");
+    } else if (action === "interview") {
+      alert("Interview scheduled");
+    } else {
+      alert("Application rejected");
+    }
+
+    Navigate("/applications");
+  } catch (error) {
+    console.error("Error updating application:", error);
+    alert("Something went wrong. Please try again.");
+  }
+};
+
 
   return (
     <div>
